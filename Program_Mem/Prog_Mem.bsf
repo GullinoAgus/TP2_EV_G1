@@ -41,8 +41,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 64)
 		(input)
-		(text "address[15..0]" (rect 0 0 82 13)(font "Arial" (font_size 8)))
-		(text "address[15..0]" (rect 4 51 73 63)(font "Arial" (font_size 8)))
+		(text "address[14..0]" (rect 0 0 82 13)(font "Arial" (font_size 8)))
+		(text "address[14..0]" (rect 4 51 73 63)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 88 64)(line_width 3))
 	)
 	(port
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 	)
 	(drawing
 		(text "32 bits" (rect 110 19 193 156)(font "Arial" )(vertical))
-		(text "65536 words" (rect 120 8 215 180)(font "Arial" )(vertical))
+		(text "32768 words" (rect 120 8 215 180)(font "Arial" )(vertical))
 		(text "Block type: AUTO" (rect 48 115 171 240)(font "Arial" ))
 		(line (pt 104 24)(pt 136 24))
 		(line (pt 136 24)(pt 136 96))

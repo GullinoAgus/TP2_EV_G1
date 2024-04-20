@@ -1,0 +1,18 @@
+# system info Internal_OSC on 2024.04.19.23:32:29
+system_info:
+name,value
+DEVICE,EP4CE22F17C6
+DEVICE_FAMILY,Cyclone IV E
+GENERATION_ID,1713580349
+#
+#
+# Files generated for Internal_OSC on 2024.04.19.23:32:29
+files:
+filepath,kind,attributes,module,is_top
+simulation/Internal_OSC.v,VERILOG,,Internal_OSC,true
+simulation/submodules/altera_int_osc.v,VERILOG,,altera_int_osc,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+Internal_OSC.int_osc_0,altera_int_osc

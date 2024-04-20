@@ -1,0 +1,22 @@
+*slew_rate.lib
+.lib fast
+.prot
+.param rsr1 = vc
+.param rsr0 = 0
+.unprot
+.endl
+*
+.lib medium
+.prot
+.param rsr1 = 0
+.param rsr0 = vc
+.unprot
+.endl
+*
+.lib slow
+.prot
+.param rsr1 = 0
+.param rsr0 = 0
+.unprot
+.endl
+*

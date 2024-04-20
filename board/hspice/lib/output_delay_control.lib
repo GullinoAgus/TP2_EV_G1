@@ -1,0 +1,31 @@
+*delay.lib
+.lib nodelay
+.prot
+.param rpdly = 0
+.param rndly = 0
+.unprot
+.endl
+*
+.lib prd
+.prot
+.param rpdly = 0
+.param rndly = vc
+.unprot
+.endl
+*
+.lib nrd
+.prot
+.param rpdly = vc
+.param rndly = 0
+.unprot
+.endl
+*
+*
+.lib absdelay
+.prot
+.param rpdly = vc
+.param rndly = vc
+.unprot
+.endl
+*
+
