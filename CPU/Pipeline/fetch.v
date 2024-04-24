@@ -1,35 +1,37 @@
 module fetch(
 input clk,
-output [0:14] fetchaddr,
-input [0:14] newFetchAddr,
+output [13:0] fetchaddr,
+output [13:0] curropcodePC,
+input [13:0] newFetchAddr,
 input jump,
-input [0:31] data,
-output reg [0:31] opcode,
+input [31:0] data,
+output [31:0] opcode,
 input en,
-input rst,
-
+input rst
 );
 
-reg [0:14] PC = 0;
+reg [13:0] PC = 14'b11111111111111;
+wire clkin;
 
-always @(posedge clk or negedge rst) begin
+always @(posedge clkin, negedge rst) begin
 
 	if (!rst) begin
-		PC <= 0;
+		PC <= 14'b11111111111111;
 	end
-	else begin
-		opcode <= data;
-		PC <= PC + 1;
+	else if(!jump) begin
+		PC <= PC + 1;	// Salto de a uno porque la memoria de prog es de palabras de 32bits
 	end
-	
-end
-// Cuidado con esto que si el jump esta muy cerca del proximo flanco de clock se puede romper. no deberia ocurrir
-always @(posedge jump) begin
-	
-	PC <= newFetchAddr;
-	opcode <= 0;
+	else if(jump) begin
+	// Cuidado con esto que si el jump esta muy cerca del proximo flanco de clock se puede romper. no deberia ocurrir
+		PC <= newFetchAddr - 1;	// Salto de a uno porque la memoria de prog es de palabras de 32bits
+	end
 	
 end
 
-assign fetchaddr = PC;
+
+
+assign fetchaddr = PC + 1;
+assign curropcodePC = PC;
+assign clkin = en & clk;
+assign opcode = data & en;
 endmodule

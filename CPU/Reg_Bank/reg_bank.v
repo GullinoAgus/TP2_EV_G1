@@ -11,7 +11,7 @@ input enOut,
 input reset
 );
 
-reg [0:31] reg_bank[0:31] = 0;
+reg [0:31] reg_bank[0:31];
 integer i;
 
 always @(posedge clk or negedge reset) begin
