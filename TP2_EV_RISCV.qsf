@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
-set_global_assignment -name TOP_LEVEL_ENTITY RISCV_CPU
+set_global_assignment -name TOP_LEVEL_ENTITY ALU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:50:03  ABRIL 19, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
@@ -66,12 +66,8 @@ set_global_assignment -name EDA_OUTPUT_DATA_FORMAT BSDL -section_id eda_board_de
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 6
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name MIF_FILE TP2_EV_RISCV.mif
 set_global_assignment -name BSF_FILE CPU/Reg_Bank/reg_bank.bsf
-set_global_assignment -name QIP_FILE CPU/Program_Mem/Prog_Mem.qip
 set_global_assignment -name BSF_FILE CPU/Program_Mem/Prog_Mem.bsf
 set_global_assignment -name QSYS_FILE CLK/Internal_OSC.qsys
 set_global_assignment -name BDF_FILE TP2_EV_RISCV.bdf
@@ -80,4 +76,27 @@ set_global_assignment -name VERILOG_FILE CPU/Reg_Bank/reg_bank.v
 set_global_assignment -name VERILOG_FILE CPU/Pipeline/fetch.v
 set_global_assignment -name VERILOG_FILE CPU/Pipeline/decode.v
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_global_assignment -name BDF_FILE CPU/ALU/ALU.bdf
+set_global_assignment -name QIP_FILE CPU/ALU/divider_U32.qip
+set_global_assignment -name QIP_FILE CPU/ALU/divider_S32.qip
+set_global_assignment -name QIP_FILE CPU/ALU/multi_U32.qip
+set_global_assignment -name QIP_FILE CPU/ALU/multi_S32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/op_selector.v
+set_global_assignment -name QIP_FILE CPU/ALU/adder.qip
+set_global_assignment -name QIP_FILE CPU/ALU/subser.qip
+set_global_assignment -name QIP_FILE CPU/ALU/output_mux.qip
+set_global_assignment -name QIP_FILE CPU/ALU/comparer_S32.qip
+set_global_assignment -name QIP_FILE CPU/ALU/comparer_U32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/and.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/or.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/xor.v
+set_global_assignment -name QIP_FILE CPU/ALU/logical_shift_left.qip
+set_global_assignment -name QIP_FILE CPU/ALU/logical_shift_right.qip
+set_global_assignment -name QIP_FILE CPU/ALU/arithmetic_shift_right.qip
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
+set_global_assignment -name VERILOG_FILE CPU/ALU/multi_SU32.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/d_latch.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
