@@ -6,7 +6,7 @@
 *
 *  Device:       EP4CE22F17C6
 *  Speed Grade:  C6
-*  Pin:          R14 (op2/den/dist[16])
+*  Pin:          R14 (op2_den_dist[16])
 *  Bank:         IO Bank 4 (Column I/O)
 *  I/O Standard: 2.5 V
 *  OCT:          Off
