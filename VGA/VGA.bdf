@@ -21,35 +21,7 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "graphic" (version "1.4"))
 (symbol
-	(rect 272 136 424 216)
-	(text "clock_divider" (rect 5 0 88 15)(font "Arial" ))
-	(text "inst" (rect 8 64 31 79)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 17 15)(font "Arial" ))
-		(text "clk" (rect 21 27 38 42)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 152 32)
-		(output)
-		(text "divided_clk" (rect 0 0 71 15)(font "Arial" ))
-		(text "divided_clk" (rect 71 27 142 42)(font "Arial" ))
-		(line (pt 152 32)(pt 136 32))
-	)
-	(parameter
-		"div_value"
-		"0"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 136 64))
-	)
-	(annotation_block (parameter)(rect 424 96 624 136))
-)
-(symbol
-	(rect 688 120 880 264)
+	(rect 592 120 784 264)
 	(text "VGA_Driver" (rect 5 0 78 15)(font "Arial" ))
 	(text "inst2" (rect 8 128 39 147)(font "Intel Clear" ))
 	(port
@@ -104,4 +76,36 @@ https://fpgasoftware.intel.com/eula.
 	(drawing
 		(rectangle (rect 16 16 176 128))
 	)
+)
+(symbol
+	(rect 320 136 472 216)
+	(text "clock_divider" (rect 5 0 88 15)(font "Arial" ))
+	(text "inst" (rect 8 64 31 79)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 17 15)(font "Arial" ))
+		(text "clk" (rect 21 27 38 42)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 152 32)
+		(output)
+		(text "divided_clk" (rect 0 0 71 15)(font "Arial" ))
+		(text "divided_clk" (rect 71 27 131 42)(font "Arial" ))
+		(line (pt 152 32)(pt 136 32))
+	)
+	(parameter
+		"div_value"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 136 64))
+	)
+	(annotation_block (parameter)(rect 320 256 520 296))
+)
+(connector
+	(pt 472 168)
+	(pt 592 168)
 )
