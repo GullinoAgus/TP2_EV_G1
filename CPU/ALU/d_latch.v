@@ -6,12 +6,14 @@ module d_latch #(parameter BSIZE = 32)
 	output reg[BSIZE-1:0] q
 );
 
-always @(en or rst or d)
+always @(negedge rst)
 	begin
-		if(rst)
-			q <= 0;
-		else
-			if(en)
-				q <= d;
+		q <= 0;
+	end
+
+always @(en or d)
+	begin
+		if(en)
+			q <= d;
 	end
 endmodule

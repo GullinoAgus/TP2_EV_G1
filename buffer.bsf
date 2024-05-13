@@ -21,9 +21,9 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 200 160)
-	(text "VGA_Driver" (rect 5 0 60 12)(font "Arial" ))
-	(text "inst" (rect 8 128 20 140)(font "Arial" ))
+	(rect 16 16 248 128)
+	(text "buffer" (rect 5 0 29 12)(font "Arial" ))
+	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -34,53 +34,57 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 48)
 		(input)
-		(text "rst" (rect 0 0 10 12)(font "Arial" ))
-		(text "rst" (rect 21 43 31 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 1))
+		(text "data[((bsize*8)-1)..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "data[((bsize*8)-1)..0]" (rect 21 43 96 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
 		(pt 0 64)
 		(input)
-		(text "colors[7..0]" (rect 0 0 43 12)(font "Arial" ))
-		(text "colors[7..0]" (rect 21 59 64 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
+		(text "load" (rect 0 0 15 12)(font "Arial" ))
+		(text "load" (rect 21 59 36 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
 	)
 	(port
-		(pt 184 32)
-		(output)
-		(text "hsync" (rect 0 0 24 12)(font "Arial" ))
-		(text "hsync" (rect 139 27 163 39)(font "Arial" ))
-		(line (pt 184 32)(pt 168 32)(line_width 1))
+		(pt 0 80)
+		(input)
+		(text "en" (rect 0 0 9 12)(font "Arial" ))
+		(text "en" (rect 21 75 30 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
 	)
 	(port
-		(pt 184 48)
+		(pt 232 32)
 		(output)
-		(text "vsync" (rect 0 0 25 12)(font "Arial" ))
-		(text "vsync" (rect 138 43 163 55)(font "Arial" ))
-		(line (pt 184 48)(pt 168 48)(line_width 1))
+		(text "video[7..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "video[7..0]" (rect 170 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
 	)
 	(port
-		(pt 184 64)
+		(pt 232 48)
 		(output)
-		(text "red[2..0]" (rect 0 0 33 12)(font "Arial" ))
-		(text "red[2..0]" (rect 130 59 163 71)(font "Arial" ))
-		(line (pt 184 64)(pt 168 64)(line_width 3))
+		(text "watermark_on" (rect 0 0 57 12)(font "Arial" ))
+		(text "watermark_on" (rect 154 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 1))
 	)
 	(port
-		(pt 184 80)
+		(pt 232 64)
 		(output)
-		(text "green[2..0]" (rect 0 0 42 12)(font "Arial" ))
-		(text "green[2..0]" (rect 121 75 163 87)(font "Arial" ))
-		(line (pt 184 80)(pt 168 80)(line_width 3))
+		(text "empty" (rect 0 0 25 12)(font "Arial" ))
+		(text "empty" (rect 186 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 1))
 	)
-	(port
-		(pt 184 96)
-		(output)
-		(text "blue[1..0]" (rect 0 0 34 12)(font "Arial" ))
-		(text "blue[1..0]" (rect 129 91 163 103)(font "Arial" ))
-		(line (pt 184 96)(pt 168 96)(line_width 3))
-	)
+	(parameter
+		"bsize"
+		"4"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"watermark"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 168 128)(line_width 1))
+		(rectangle (rect 16 16 216 96)(line_width 1))
 	)
+	(annotation_block (parameter)(rect 248 -64 348 16))
 )

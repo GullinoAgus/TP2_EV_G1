@@ -19,9 +19,9 @@ Intel and sold by Intel or its authorized distributors.  Please
 refer to the applicable agreement for further details, at
 https://fpgasoftware.intel.com/eula.
 */
-(header "graphic" (version "1.4"))
+(header "symbol" (version "1.2"))
 (symbol
-	(rect 616 192 872 352)
+	(rect 16 16 272 176)
 	(text "VGA" (rect 5 0 34 20)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 137 31 156)(font "Intel Clear" ))
 	(port

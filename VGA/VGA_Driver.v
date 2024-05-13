@@ -1,8 +1,9 @@
 // VGA 640x480 @ 60 fps
 
 module VGA_Driver(
-	input clk50MHz,         // 50 MHz
 	input clk25MHz,         // 25 MHz
+	input rst,
+	input[7:0] colors,
 	output hsync,      	// horizontal sync
 	output vsync,	      // vertical sync
 	output [2:0] red,
@@ -12,12 +13,13 @@ module VGA_Driver(
 
 	reg [9:0] counter_x = 0;  // horizontal counter
 	reg [9:0] counter_y = 0;  // vertical counter
-	reg [2:0] r_red = 0;
-	reg [2:0] r_green = 0;
-	reg [1:0] r_blue = 0;
 	
-
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	always @(negedge rst)
+		begin
+			counter_x <= 0;
+			counter_y <= 0;
+		end
+	
 	// counter and sync generation
 	always @(posedge clk25MHz)  // horizontal counter
 		begin 
@@ -41,19 +43,9 @@ module VGA_Driver(
 	// hsync and vsync output assignments
 	assign hsync = (counter_x >= 0 && counter_x < 96) ? 1:0;  // hsync high for 96 counts                                                 
 	assign vsync = (counter_y >= 0 && counter_y < 2) ? 1:0;   // vsync high for 2 counts
-
-	// pattern generate
-	always @ (posedge clk50MHz)
-	begin
-		
-		
-		// LEER MEMORIA PARA ASIGNAR A LOS COLORES SEGUN CORRESPONDA
-		
-		
-	end
 						
-	assign red = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? r_red : 2'b0;
-	assign blue = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? r_blue : 1'b0;
-	assign green = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? r_green : 2'b0;
+	assign red = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? colors[7:5] : 2'b0;
+	assign blue = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? colors[4:2] : 1'b0;
+	assign green = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? colors[1:0] : 2'b0;
 	
 endmodule

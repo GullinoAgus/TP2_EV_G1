@@ -11,7 +11,7 @@ always@ (posedge clk)
 		if(counter_value == div_value)
 			begin 
 				counter_value <= 0; // Reset value
-				divided_clk <= ~divided_clk; // flip designator
+				divided_clk <= ~divided_clk; // flip clk status
 			end
 		else
 			counter_value <= counter_value + 1; // Count up
