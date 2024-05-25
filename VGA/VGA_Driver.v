@@ -3,6 +3,7 @@
 module VGA_Driver(
 	input clk25MHz,         // 25 MHz
 	input rst,
+	input en,
 	input[7:0] colors,
 	output hsync,      	// horizontal sync
 	output vsync,	      // vertical sync
@@ -21,7 +22,7 @@ module VGA_Driver(
 		end
 	
 	// counter and sync generation
-	always @(posedge clk25MHz)  // horizontal counter
+	always @(posedge clk25MHz && en)  // horizontal counter
 		begin 
 			if (counter_x < 799)
 				counter_x <= counter_x + 1;  // horizontal counter (including off-screen horizontal 160 pixels) total of 800 pixels 
@@ -29,7 +30,7 @@ module VGA_Driver(
 				counter_x <= 0;              
 		end
 	
-	always @ (posedge clk25MHz)  // vertical counter
+	always @ (posedge clk25MHz && en)  // vertical counter
 		begin 
 			if (counter_x == 799)  // only counts up 1 count after horizontal finishes 800 counts
 				begin

@@ -1,19 +1,20 @@
 module d_latch #(parameter BSIZE = 32)
 (
-	input[BSIZE-1:0] d,
+	input wire[BSIZE-1:0] d,
 	input en,
-	input rst,
-	output reg[BSIZE-1:0] q
+	output reg[BSIZE-1:0] q,
+	output wire[BSIZE-1:0] q_n
 );
 
-always @(negedge rst)
-	begin
-		q <= 0;
-	end
 
-always @(en or d)
+always @(d)
 	begin
-		if(en)
-			q <= d;
+		if (en) 
+			begin
+				q <= d;
+			end
 	end
+	
+assign q_n = ~q;
+
 endmodule
