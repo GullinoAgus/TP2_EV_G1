@@ -366,7 +366,7 @@ https://fpgasoftware.intel.com/eula.
 	)
 )
 (symbol
-	(rect 664 128 960 256)
+	(rect 672 136 968 264)
 	(text "ALU" (rect 5 0 33 20)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 105 31 124)(font "Intel Clear" ))
 	(port

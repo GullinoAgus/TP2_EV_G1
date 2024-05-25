@@ -5,15 +5,16 @@ module buffer_selector(
  	output reg select
 );
 
-always @(negedge rst)
-	begin
-		select <= 0;
-	end
 
-always @(e1, e2)
+always @(e1, e2, rst)
 	begin
-		if(e1 == 1 && e2 != 1) select <= 1;
-		if(e2 == 1 && e1 != 1) select <= 0;
+		if(!rst) 
+			select <= 0;
+		else
+			begin
+				if(e1 == 1 && e2 != 1) select <= 1;
+				if(e2 == 1 && e1 != 1) select <= 0;
+			end
 	end
 	
 endmodule

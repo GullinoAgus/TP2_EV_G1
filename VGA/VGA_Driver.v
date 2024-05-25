@@ -1,4 +1,4 @@
-// VGA 640x480 @ 60 fps
+// VGA 640x480
 
 module VGA_Driver(
 	input clk25MHz,         // 25 MHz
@@ -15,30 +15,25 @@ module VGA_Driver(
 	reg [9:0] counter_x = 0;  // horizontal counter
 	reg [9:0] counter_y = 0;  // vertical counter
 	
-	always @(negedge rst)
-		begin
-			counter_x <= 0;
-			counter_y <= 0;
-		end
-	
-	// counter and sync generation
-	always @(posedge clk25MHz && en)  // horizontal counter
+	always @ (posedge clk25MHz && en, negedge rst)  // vertical counter
 		begin 
-			if (counter_x < 799)
-				counter_x <= counter_x + 1;  // horizontal counter (including off-screen horizontal 160 pixels) total of 800 pixels 
-			else
-				counter_x <= 0;              
-		end
-	
-	always @ (posedge clk25MHz && en)  // vertical counter
-		begin 
-			if (counter_x == 799)  // only counts up 1 count after horizontal finishes 800 counts
+			if(!rst)
 				begin
-					if (counter_y < 525)  // vertical counter (including off-screen vertical 45 pixels) total of 525 pixels
-						counter_y <= counter_y + 1;
-					else
-						counter_y <= 0;              
-				end 
+					counter_x <= 0;
+					counter_y <= 0;
+				end
+			else
+				if (counter_x < 799)
+					counter_x <= counter_x + 1;  // horizontal counter (including off-screen horizontal 160 pixels) total of 800 pixels 
+				else
+					begin
+						if (counter_y < 525)  // vertical counter (including off-screen vertical 45 pixels) total of 525 pixels
+							counter_y <= counter_y + 1;
+						else
+							counter_y <= 0;
+							
+						counter_x <= 0;
+					end
 		end
 
 	// hsync and vsync output assignments

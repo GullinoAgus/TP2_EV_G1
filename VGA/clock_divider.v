@@ -1,6 +1,6 @@
 module clock_divider #(parameter div_value = 0) (
 	input wire clk, // 50Mhz
-	output reg divided_clk
+	output reg divided_clk = 0
 );
 
 // division_value = clk / (2*desiredFrecuency) - 1
