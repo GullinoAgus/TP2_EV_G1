@@ -294,7 +294,7 @@ https://fpgasoftware.intel.com/eula.
 )
 (pin
 	(output)
-	(rect 856 200 1032 216)
+	(rect 856 216 1032 232)
 	(text "OUTPUT" (rect 1 0 51 13)(font "Arial" (font_size 6)))
 	(text "clk_div" (rect 90 0 133 15)(font "Arial" ))
 	(pt 0 8)
@@ -912,10 +912,6 @@ https://fpgasoftware.intel.com/eula.
 	(pt 536 496)
 )
 (connector
-	(pt 1648 304)
-	(pt 1648 552)
-)
-(connector
 	(pt 1664 320)
 	(pt 1664 536)
 )
@@ -962,22 +958,6 @@ https://fpgasoftware.intel.com/eula.
 (connector
 	(pt 1280 472)
 	(pt 1296 472)
-)
-(connector
-	(pt 1184 488)
-	(pt 1184 552)
-)
-(connector
-	(pt 1184 488)
-	(pt 1296 488)
-)
-(connector
-	(pt 344 552)
-	(pt 1184 552)
-)
-(connector
-	(pt 1184 552)
-	(pt 1648 552)
 )
 (connector
 	(pt 1680 400)
@@ -1088,18 +1068,6 @@ https://fpgasoftware.intel.com/eula.
 	(pt 1696 808)
 )
 (connector
-	(pt 832 208)
-	(pt 856 208)
-)
-(connector
-	(pt 832 208)
-	(pt 832 288)
-)
-(connector
-	(pt 832 288)
-	(pt 832 408)
-)
-(connector
 	(pt 1240 680)
 	(pt 1744 680)
 )
@@ -1127,13 +1095,44 @@ https://fpgasoftware.intel.com/eula.
 	(pt 832 288)
 	(pt 2008 288)
 )
+(connector
+	(pt 1648 304)
+	(pt 1648 552)
+)
+(connector
+	(pt 1184 552)
+	(pt 1184 488)
+)
+(connector
+	(pt 1296 488)
+	(pt 1184 488)
+)
+(connector
+	(pt 344 552)
+	(pt 1184 552)
+)
+(connector
+	(pt 1184 552)
+	(pt 1648 552)
+)
+(connector
+	(pt 832 224)
+	(pt 856 224)
+)
+(connector
+	(pt 832 224)
+	(pt 832 288)
+)
+(connector
+	(pt 832 288)
+	(pt 832 408)
+)
 (junction (pt 1224 584))
 (junction (pt 832 288))
 (junction (pt 784 608))
 (junction (pt 784 536))
 (junction (pt 1240 456))
 (junction (pt 1280 600))
-(junction (pt 1184 552))
 (junction (pt 800 392))
 (junction (pt 832 408))
 (junction (pt 1544 456))
@@ -1142,3 +1141,4 @@ https://fpgasoftware.intel.com/eula.
 (junction (pt 1392 600))
 (junction (pt 1240 680))
 (junction (pt 1440 728))
+(junction (pt 1184 552))

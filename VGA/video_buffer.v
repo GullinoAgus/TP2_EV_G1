@@ -27,8 +27,8 @@ always @(posedge clk25MHz && en, posedge load)
 					begin
 						video <= mem[SLICE_WIDTH-1:0];
 						mem <= mem >> SLICE_WIDTH;
-						count <= count + 1;
-						watermark_on <= (count >= watermark) ? 1:0;
+						count <= count + 6'b1;
+						watermark_on <= (count >= watermark) ? 1'b1:1'b0;
 					end
 				else
 					begin
