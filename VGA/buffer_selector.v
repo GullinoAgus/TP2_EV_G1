@@ -1,19 +1,18 @@
 module buffer_selector(
-	input wire e1,
-	input wire e2,
+	input wire f1,
+	input wire f2,
 	input wire rst,
  	output reg select
 );
 
-
-always @(e1, e2, rst)
+always @(f1, f2, rst)
 	begin
 		if(!rst) 
 			select <= 0;
 		else
 			begin
-				if(e1 == 1 && e2 != 1) select <= 1;
-				if(e2 == 1 && e1 != 1) select <= 0;
+				if(!f1 && f2) select <= 1;
+				if(!f2 && f1) select <= 0;
 			end
 	end
 	
