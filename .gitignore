@@ -45,6 +45,7 @@ timing
 *.tcl
 *.txt # Explicitly add any text files used
 *~
+*.sp
 *example*
 *sopc_*
 PLLJ_PLLSPE_INFO.txt # The generated PLL specification file
