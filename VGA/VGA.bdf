@@ -810,6 +810,13 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 96)(pt 16 96))
 	)
 	(port
+		(pt 0 112)
+		(input)
+		(text "rst" (rect 0 0 16 15)(font "Arial" ))
+		(text "rst" (rect 21 107 37 122)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
 		(pt 232 32)
 		(output)
 		(text "video[7..0]" (rect 0 0 64 15)(font "Arial" ))
@@ -883,6 +890,13 @@ https://fpgasoftware.intel.com/eula.
 		(text "need_pixel" (rect 0 0 70 15)(font "Arial" ))
 		(text "need_pixel" (rect 21 91 91 106)(font "Arial" ))
 		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "rst" (rect 0 0 16 15)(font "Arial" ))
+		(text "rst" (rect 21 107 37 122)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
 	)
 	(port
 		(pt 232 32)
@@ -1019,20 +1033,12 @@ https://fpgasoftware.intel.com/eula.
 	(pt 1304 480)
 )
 (connector
-	(pt 344 552)
-	(pt 1304 552)
-)
-(connector
 	(pt 1304 552)
 	(pt 1648 552)
 )
 (connector
 	(pt 344 608)
 	(pt 648 608)
-)
-(connector
-	(pt 648 608)
-	(pt 784 608)
 )
 (connector
 	(pt 816 728)
@@ -1369,6 +1375,34 @@ https://fpgasoftware.intel.com/eula.
 	(pt 832 288)
 	(pt 2008 288)
 )
+(connector
+	(pt 344 552)
+	(pt 744 552)
+)
+(connector
+	(pt 744 552)
+	(pt 1304 552)
+)
+(connector
+	(pt 744 776)
+	(pt 880 776)
+)
+(connector
+	(pt 744 472)
+	(pt 744 552)
+)
+(connector
+	(pt 744 552)
+	(pt 744 776)
+)
+(connector
+	(pt 744 472)
+	(pt 880 472)
+)
+(connector
+	(pt 648 608)
+	(pt 784 608)
+)
 (junction (pt 800 392))
 (junction (pt 832 408))
 (junction (pt 1392 600))
@@ -1386,3 +1420,4 @@ https://fpgasoftware.intel.com/eula.
 (junction (pt 1200 424))
 (junction (pt 2216 368))
 (junction (pt 832 288))
+(junction (pt 744 552))
