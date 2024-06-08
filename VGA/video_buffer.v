@@ -35,17 +35,18 @@ always @(posedge clk, negedge rst)
 					watermark_on <= 0;
 				end
 			else
-				if(count < bsize) //need_pixel??
-					begin
-						video <= mem[bsize*SLICE_WIDTH-1:(bsize-1)*SLICE_WIDTH-1];
-						mem <= mem << SLICE_WIDTH;
-						count <= count + 6'b1;
-						watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
-					end
-				else
-					begin
-						full <= 0;
-						count <= 0;
-					end
+				if(need_pixel)
+					if(count < bsize)
+						begin
+							video <= mem[bsize*SLICE_WIDTH-1:(bsize-1)*SLICE_WIDTH];
+							mem <= mem << SLICE_WIDTH;
+							count <= count + 6'b1;
+							watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
+						end
+					else
+						begin
+							full <= 0;
+							count <= 0;
+						end
 	end
 endmodule
