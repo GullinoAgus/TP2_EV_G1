@@ -3,34 +3,70 @@ input [31:0] r1,
 input [31:0] r2,
 input [31:0] imm,
 input [31:0] PC,
-input [10:0] op_data,
-input en,
+input [14:0] op_data,
+input [2:0] func3,
 input rst,
 input clk,
+input en,
 
-output reg[31:0] r1_out,
-output reg[31:0] r2_out,
-output reg[31:0] imm_out,
+
+output reg load,
 output reg[31:0] PC_out,
-output reg[10:0] op_data_out
+output reg NE,
+output reg EQ,
+output reg LT,
+output reg GE
 );
 
-assign clk_en = clk && en;
+assign clken = clk && en;
 
-always @(posedge clk_en, negedge rst) begin
+always @(posedge clken, negedge rst) begin
 	if (!rst) begin
-		r1_out <= 0;
-		r2_out <= 0;
-		imm_out <= 0;
 		PC_out <= 0;
-		op_data_out <= 0;
+		load <= 0;
 	end
 	else begin
-		r1_out <= r1;
-		r2_out <= r2;
-		imm_out <= imm;
-		PC_out <= PC;
-		op_data_out <= op_data;
+		if(op_data[5]) begin
+			if(op_data[1]) PC_out <= PC + imm;
+			else PC_out <= PC + imm;
+			load <= 1;
+		end 
+		else if(op_data[4]) begin
+			PC_out <= PC + imm;
+			case (func3)
+				3'b000: begin
+					load <= (r1 == r2) ? 1 : 0;
+					EQ <= (r1 == r2) ? 1 : 0;
+				end
+				3'b001: begin
+					load <= (r1 != r2) ? 1 : 0;
+					NE <= (r1 != r2) ? 1 : 0;
+				end
+				3'b100: begin
+					load <= ($signed(r1) < $signed(r2)) ? 1 : 0;
+					LT <= ($signed(r1) < $signed(r2)) ? 1 : 0;
+				end
+				3'b101: begin
+					load <= ($signed(r1) >= $signed(r2)) ? 1 : 0;
+					GE <= ($signed(r1) >= $signed(r2)) ? 1 : 0;
+				end
+				3'b110: begin
+					load <= (r1 < r2) ? 1 : 0;
+					LT <= (r1 < r2) ? 1 : 0;
+				end
+				3'b111: begin
+					load <= (r1 >= r2) ? 1 : 0;
+					GE <= (r1 >= r2) ? 1 : 0;
+				end
+			endcase
+		end
+		else begin
+		load <= 0;
+		LT <= 0;
+		GE <= 0;
+		EQ <= 0;
+		NE <= 0;
+		end
 	end
 end
 

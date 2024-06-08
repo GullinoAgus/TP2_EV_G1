@@ -14,7 +14,9 @@ input reset
 reg [0:31] reg_bank[0:31];
 integer i;
 
-always @(posedge clk or negedge reset) begin
+assign clken = clk && enOut;
+
+always @(posedge clken, negedge reset) begin
 	if (!reset) begin
 		for (i=0; i < 32; i=i+1) begin
 			reg_bank[i] = 0;
@@ -22,21 +24,14 @@ always @(posedge clk or negedge reset) begin
 		busA = 0;
 		busB = 0;
 	end
-	else if (enOut) begin
+	else begin
 		busA <= reg_bank[busAsel];
 		busB <= reg_bank[busBsel];
-	end
-	
-	
+		if (busCsel != 0 && WriteC) reg_bank[busCsel] <= busC;
+	end	
 
 end
 
-always @(posedge WriteC) begin
-
-	if (busCsel != 0)
-		reg_bank[busCsel] <= busC;
-
-end
 endmodule
 
 

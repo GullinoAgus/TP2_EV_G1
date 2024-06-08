@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
-set_global_assignment -name TOP_LEVEL_ENTITY VGA
+set_global_assignment -name TOP_LEVEL_ENTITY RISCV_CPU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:50:03  ABRIL 19, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
@@ -70,34 +70,62 @@ set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE CPU/Pipeline/imm_builder.v
-set_global_assignment -name VERILOG_FILE North_Bridge/north_bridge_driver.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
-set_global_assignment -name MIF_FILE TP2_EV_RISCV.mif
-set_global_assignment -name BSF_FILE CPU/Reg_Bank/reg_bank.bsf
-set_global_assignment -name BSF_FILE CPU/Program_Mem/Prog_Mem.bsf
-set_global_assignment -name QSYS_FILE CLK/Internal_OSC.qsys
-set_global_assignment -name BDF_FILE TP2_EV_RISCV.bdf
 set_global_assignment -name BDF_FILE CPU/RISCV_CPU.bdf
-set_global_assignment -name VERILOG_FILE CPU/Reg_Bank/reg_bank.v
+set_global_assignment -name BSF_FILE CPU/Pipeline/imm_builder.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/stage3.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/stage2.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/operand_builder.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/addr_builder.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/decode.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/stage1.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/fetch.bsf
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/imm_builder.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/stage.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/stage3.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/stage2.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/operand_builder.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/pipeline_ctrl.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/addr_builder.v
 set_global_assignment -name VERILOG_FILE CPU/Pipeline/fetch.v
 set_global_assignment -name VERILOG_FILE CPU/Pipeline/decode.v
-set_global_assignment -name BDF_FILE CPU/ALU/ALU.bdf
-set_global_assignment -name VERILOG_FILE CPU/ALU/multi_SU32.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/stage1.v
+set_global_assignment -name QIP_FILE CPU/Program_Mem/Prog_Mem.qip
+set_global_assignment -name VERILOG_FILE CPU/Program_Mem/Prog_Mem.v
+set_global_assignment -name BSF_FILE CPU/ALU/and_funct.bsf
+set_global_assignment -name BSF_FILE CPU/ALU/or_funct.bsf
+set_global_assignment -name BSF_FILE CPU/ALU/xor_funct.bsf
+set_global_assignment -name BSF_FILE CPU/Reg_Bank/reg_bank.bsf
+set_global_assignment -name VERILOG_FILE CPU/Reg_Bank/reg_bank.v
+set_global_assignment -name QIP_FILE CPU/ALU/adder.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/adder.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/and.v
+set_global_assignment -name QIP_FILE CPU/ALU/arithmetic_shift_right.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/arithmetic_shift_right.v
+set_global_assignment -name QIP_FILE CPU/ALU/comparer_S32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/comparer_S32.v
+set_global_assignment -name QIP_FILE CPU/ALU/comparer_U32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/comparer_U32.v
 set_global_assignment -name VERILOG_FILE CPU/ALU/d_latch.v
-set_global_assignment -name BDF_FILE North_Bridge/North_Bridge.bdf
-set_global_assignment -name BDF_FILE VGA/VGA.bdf
-set_global_assignment -name VERILOG_FILE VGA/VGA_Driver.v
-set_global_assignment -name VERILOG_FILE VGA/clock_divider.v
-set_global_assignment -name VERILOG_FILE VGA/video_buffer.v
-set_global_assignment -name QIP_FILE VGA/buffer_mux.qip
-set_global_assignment -name VERILOG_FILE VGA/demux.v
-set_global_assignment -name VERILOG_FILE VGA/buffer_selector.v
-set_global_assignment -name VERILOG_FILE North_Bridge/demux3.v
-set_global_assignment -name QIP_FILE North_Bridge/mux3.qip
-set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform_VGA.vwf
+set_global_assignment -name QIP_FILE CPU/ALU/divider_S32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/divider_S32.v
+set_global_assignment -name QIP_FILE CPU/ALU/divider_U32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/divider_U32.v
+set_global_assignment -name QIP_FILE CPU/ALU/logical_shift_left.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/logical_shift_left.v
+set_global_assignment -name QIP_FILE CPU/ALU/logical_shift_right.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/logical_shift_right.v
+set_global_assignment -name QIP_FILE CPU/ALU/multi_S32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/multi_S32.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/multi_SU32.v
+set_global_assignment -name QIP_FILE CPU/ALU/multi_U32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/multi_U32.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/op_selector.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/or.v
+set_global_assignment -name QIP_FILE CPU/ALU/output_mux.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/output_mux.v
+set_global_assignment -name QIP_FILE CPU/ALU/subser.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/subser.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/xor.v
+set_global_assignment -name BDF_FILE CPU/ALU/ALU.bdf
+set_global_assignment -name BDF_FILE TP2_EV_RISCV.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
