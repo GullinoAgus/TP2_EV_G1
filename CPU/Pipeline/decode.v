@@ -1,4 +1,4 @@
-`define UTYPE1 5'b01101
+/*`define UTYPE1 5'b01101
 `define UTYPE2 5'b00101
 `define BTYPE 5'b11000
 `define ITYPE1 5'b11001
@@ -87,12 +87,10 @@ always @(posedge clken, negedge rst) begin
 			end
 		endcase
 
-	
-	end
-	
+	end	
 			
 end
 
 	assign clkIn = clk & en;
 	
-endmodule
+endmodule*/

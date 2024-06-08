@@ -15,6 +15,11 @@ module VGA_Driver(
 	output wire[9:0] counterY
 );
 
+	localparam BOTTOM_COUNTER_X = 144; 	// 144 
+	localparam BOTTOM_COUNTER_Y = 35;	// 35
+	localparam TOP_COUNTER_X = 783;		// 783	
+	localparam TOP_COUNTER_Y = 514;		// 514
+
 	reg [9:0] counter_x = 0;  // horizontal counter
 	reg [9:0] counter_y = 0;  // vertical counter
 	wire clk;
@@ -48,10 +53,10 @@ module VGA_Driver(
 	// hsync and vsync output assignments
 	assign hsync = (counter_x >= 0 && counter_x < 96) ? 1'b1:1'b0;  // hsync high for 96 counts                                                 
 	assign vsync = (counter_y >= 0 && counter_y < 2) ? 1'b1:1'b0;   // vsync high for 2 counts
-
-	assign need_pixel = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? 1'b1 : 1'b0;	
-	assign red = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? colors[7:5] : 3'b0;
-	assign green = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? colors[4:2] : 3'b0;
-	assign blue = (counter_x > 144 && counter_x <= 783 && counter_y > 35 && counter_y <= 514) ? colors[1:0] : 2'b0;	
+	
+	assign need_pixel = (counter_x > BOTTOM_COUNTER_X && counter_x <= TOP_COUNTER_X && counter_y > BOTTOM_COUNTER_Y && counter_y <= TOP_COUNTER_Y) ? 1'b1 : 1'b0;	
+	assign red = (counter_x > BOTTOM_COUNTER_X && counter_x <= TOP_COUNTER_X && counter_y > BOTTOM_COUNTER_Y && counter_y <= TOP_COUNTER_Y) ? colors[7:5] : 3'b0;
+	assign green = (counter_x > BOTTOM_COUNTER_X && counter_x <= TOP_COUNTER_X && counter_y > BOTTOM_COUNTER_Y && counter_y <= TOP_COUNTER_Y) ? colors[4:2] : 3'b0;
+	assign blue = (counter_x > BOTTOM_COUNTER_X && counter_x <= TOP_COUNTER_X && counter_y > BOTTOM_COUNTER_Y && counter_y <= TOP_COUNTER_Y) ? colors[1:0] : 2'b0;	
 	
 endmodule
