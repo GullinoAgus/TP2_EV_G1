@@ -48,7 +48,7 @@ always @(posedge clk, negedge rst)
 					begin
 						video <= data[bsize*SLICE_WIDTH-1:(bsize-1)*SLICE_WIDTH];
 						mem <= data << SLICE_WIDTH;
-						count <= count + 6'b1;
+						count <= 6'b1;
 						watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
 						full <= 1;
 					end
