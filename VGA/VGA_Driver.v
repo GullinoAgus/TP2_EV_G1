@@ -17,8 +17,8 @@ module VGA_Driver(
 
 	localparam BOTTOM_COUNTER_X = 5; 	// 144 
 	localparam BOTTOM_COUNTER_Y = 1;	// 35
-	localparam TOP_COUNTER_X = 10;		// 783	
-	localparam TOP_COUNTER_Y = 10;		// 514
+	localparam TOP_COUNTER_X = 14;		// 783	
+	localparam TOP_COUNTER_Y = 14;		// 514
 	localparam MAX_X = 20; //799
 	localparam MAX_Y = 30; //525
 	localparam MAX_SYNC_X = 2; //96

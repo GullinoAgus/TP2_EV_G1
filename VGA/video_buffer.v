@@ -26,27 +26,31 @@ always @(posedge clk, negedge rst)
 				count <= 0;
 				full <= 0;
 				watermark_on <= 0;
+				video <= 8'b0;
 			end
 		else
-			if(load)
-				begin
-					mem <= data;
-					full <= 1;
-					watermark_on <= 0;
-				end
+			if(need_pixel)
+				if(count < bsize)
+					begin
+						video <= mem[bsize*SLICE_WIDTH-1:(bsize-1)*SLICE_WIDTH];
+						mem <= mem << SLICE_WIDTH;
+						count <= count + 6'b1;
+						watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
+					end
+				else
+					begin
+						full <= 0;
+						count <= 0;
+						watermark_on <= 0;
+					end
 			else
-				if(need_pixel)
-					if(count < bsize)
-						begin
-							video <= mem[bsize*SLICE_WIDTH-1:(bsize-1)*SLICE_WIDTH];
-							mem <= mem << SLICE_WIDTH;
-							count <= count + 6'b1;
-							watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
-						end
-					else
-						begin
-							full <= 0;
-							count <= 0;
-						end
+				if(load && !full)
+					begin
+						video <= data[bsize*SLICE_WIDTH-1:(bsize-1)*SLICE_WIDTH];
+						mem <= data << SLICE_WIDTH;
+						count <= count + 6'b1;
+						watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
+						full <= 1;
+					end
 	end
 endmodule
