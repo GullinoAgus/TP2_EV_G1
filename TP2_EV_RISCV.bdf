@@ -20,8 +20,189 @@ refer to the applicable agreement for further details, at
 https://fpgasoftware.intel.com/eula.
 */
 (header "graphic" (version "1.4"))
+(pin
+	(output)
+	(rect 672 72 688 320)
+	(text "OUTPUT" (rect 0 197 13 247)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_dqmLOW_pad_o" (rect 1 5 20 158)(font "Intel Clear" )(vertical))
+	(pt 8 248)
+	(drawing
+		(line (pt 8 248)(pt 8 196))
+		(line (pt 4 196)(pt 4 170))
+		(line (pt 12 196)(pt 12 170))
+		(line (pt 12 196)(pt 4 196))
+		(line (pt 4 170)(pt 8 166))
+		(line (pt 8 166)(pt 12 170))
+		(line (pt 12 170)(pt 8 166))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 672 24 736 48))
+)
+(pin
+	(output)
+	(rect 696 88 712 336)
+	(text "OUTPUT" (rect 0 197 13 247)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_dqmHIGH_pad_o" (rect 2 5 21 159)(font "Intel Clear" )(vertical))
+	(pt 8 248)
+	(drawing
+		(line (pt 8 248)(pt 8 196))
+		(line (pt 4 196)(pt 4 170))
+		(line (pt 12 196)(pt 12 170))
+		(line (pt 12 196)(pt 4 196))
+		(line (pt 4 170)(pt 8 166))
+		(line (pt 8 166)(pt 12 170))
+		(line (pt 12 170)(pt 8 166))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 696 56 760 80))
+)
+(pin
+	(output)
+	(rect 624 56 640 288)
+	(text "OUTPUT" (rect 0 181 13 231)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_cas_n_pad_o" (rect 0 5 15 145)(font "Arial" )(vertical))
+	(pt 8 232)
+	(drawing
+		(line (pt 8 232)(pt 8 180))
+		(line (pt 4 180)(pt 4 154))
+		(line (pt 12 180)(pt 12 154))
+		(line (pt 12 180)(pt 4 180))
+		(line (pt 4 154)(pt 8 150))
+		(line (pt 8 150)(pt 12 154))
+		(line (pt 12 154)(pt 8 150))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 640 -40 696 -16))
+)
+(pin
+	(output)
+	(rect 648 80 664 304)
+	(text "OUTPUT" (rect 0 173 13 223)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_we_n_pad_o" (rect 0 5 19 131)(font "Intel Clear" )(vertical))
+	(pt 8 224)
+	(drawing
+		(line (pt 8 224)(pt 8 172))
+		(line (pt 4 172)(pt 4 146))
+		(line (pt 12 172)(pt 12 146))
+		(line (pt 12 172)(pt 4 172))
+		(line (pt 4 146)(pt 8 142))
+		(line (pt 8 142)(pt 12 146))
+		(line (pt 12 146)(pt 8 142))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 648 -8 712 16))
+)
+(pin
+	(output)
+	(rect 600 56 616 280)
+	(text "OUTPUT" (rect 0 173 13 223)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_ras_n_pad_o" (rect 0 5 19 132)(font "Intel Clear" )(vertical))
+	(pt 8 224)
+	(drawing
+		(line (pt 8 224)(pt 8 172))
+		(line (pt 4 172)(pt 4 146))
+		(line (pt 12 172)(pt 12 146))
+		(line (pt 12 172)(pt 4 172))
+		(line (pt 4 146)(pt 8 142))
+		(line (pt 8 142)(pt 12 146))
+		(line (pt 12 146)(pt 8 142))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 616 -72 672 -48))
+)
+(pin
+	(output)
+	(rect 584 56 600 272)
+	(text "OUTPUT" (rect 0 165 13 215)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_cs_n_pad_o" (rect 0 5 19 127)(font "Intel Clear" )(vertical))
+	(pt 8 216)
+	(drawing
+		(line (pt 8 216)(pt 8 164))
+		(line (pt 4 164)(pt 4 138))
+		(line (pt 12 164)(pt 12 138))
+		(line (pt 12 164)(pt 4 164))
+		(line (pt 4 138)(pt 8 134))
+		(line (pt 8 134)(pt 12 138))
+		(line (pt 12 138)(pt 8 134))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 600 -104 664 -80))
+)
+(pin
+	(output)
+	(rect 568 48 584 256)
+	(text "OUTPUT" (rect 0 157 13 207)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_cke_pad_o" (rect 1 4 20 118)(font "Intel Clear" )(vertical))
+	(pt 8 208)
+	(drawing
+		(line (pt 8 208)(pt 8 156))
+		(line (pt 4 156)(pt 4 130))
+		(line (pt 12 156)(pt 12 130))
+		(line (pt 12 156)(pt 4 156))
+		(line (pt 4 130)(pt 8 126))
+		(line (pt 8 126)(pt 12 130))
+		(line (pt 12 130)(pt 8 126))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 584 -136 640 -112))
+)
+(pin
+	(output)
+	(rect 520 -24 536 224)
+	(text "OUTPUT" (rect 0 197 13 247)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_bank_pad_o[1..0]" (rect 1 5 20 161)(font "Intel Clear" )(vertical))
+	(pt 8 248)
+	(drawing
+		(line (pt 8 248)(pt 8 196))
+		(line (pt 4 196)(pt 4 170))
+		(line (pt 12 196)(pt 12 170))
+		(line (pt 12 196)(pt 4 196))
+		(line (pt 4 170)(pt 8 166))
+		(line (pt 8 166)(pt 12 170))
+		(line (pt 12 170)(pt 8 166))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 520 -200 584 -176))
+)
+(pin
+	(output)
+	(rect 496 -56 512 208)
+	(text "OUTPUT" (rect 0 213 13 263)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_addr_pad_o1[12..0]" (rect 1 5 20 176)(font "Intel Clear" )(vertical))
+	(pt 8 264)
+	(drawing
+		(line (pt 8 264)(pt 8 212))
+		(line (pt 4 212)(pt 4 186))
+		(line (pt 12 212)(pt 12 186))
+		(line (pt 12 212)(pt 4 212))
+		(line (pt 4 186)(pt 8 182))
+		(line (pt 8 182)(pt 12 186))
+		(line (pt 12 186)(pt 8 182))
+	)
+	(rotate90)
+	(annotation_block (location)(rect 512 -232 576 -208))
+)
+(pin
+	(bidir)
+	(rect 544 -16 560 240)
+	(text "BIDIR" (rect 0 224 13 255)(font "Arial" (font_size 6))(vertical))
+	(text "sdram_dq_pad_io[15..0]" (rect 1 5 16 164)(font "Arial" )(vertical))
+	(pt 8 256)
+	(drawing
+		(line (pt 4 200)(pt 4 178))
+		(line (pt 8 256)(pt 8 204))
+		(line (pt 12 200)(pt 12 178))
+		(line (pt 4 178)(pt 8 174))
+		(line (pt 12 178)(pt 8 174))
+		(line (pt 4 200)(pt 8 204))
+		(line (pt 8 204)(pt 12 200))
+	)
+	(rotate90)
+	(text "VCC" (rect 7 228 20 252)(font "Arial" (font_size 6))(vertical))
+	(annotation_block (location)(rect 560 -168 624 -144))
+)
 (symbol
-	(rect 616 192 872 352)
+	(rect 888 184 1144 344)
 	(text "VGA" (rect 5 0 34 20)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 137 31 156)(font "Intel Clear" ))
 	(port
@@ -105,3 +286,256 @@ https://fpgasoftware.intel.com/eula.
 		(rectangle (rect 16 16 240 144))
 	)
 )
+(symbol
+	(rect 48 128 424 400)
+	(text "sdram_controller" (rect 5 0 115 15)(font "Arial" ))
+	(text "inst1" (rect 8 256 39 271)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "wr_addr[(HADDR_WIDTH-1)..0]" (rect 0 0 202 15)(font "Arial" ))
+		(text "wr_addr[(HADDR_WIDTH-1)..0]" (rect 21 27 223 42)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "wr_data[15..0]" (rect 0 0 90 15)(font "Arial" ))
+		(text "wr_data[15..0]" (rect 21 43 111 58)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "wr_enable" (rect 0 0 68 15)(font "Arial" ))
+		(text "wr_enable" (rect 21 59 89 74)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "rd_addr[(HADDR_WIDTH-1)..0]" (rect 0 0 200 15)(font "Arial" ))
+		(text "rd_addr[(HADDR_WIDTH-1)..0]" (rect 21 75 221 90)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "rd_enable" (rect 0 0 66 15)(font "Arial" ))
+		(text "rd_enable" (rect 21 91 87 106)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "rst_n" (rect 0 0 33 15)(font "Arial" ))
+		(text "rst_n" (rect 21 107 54 122)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "clk" (rect 0 0 17 15)(font "Arial" ))
+		(text "clk" (rect 21 123 38 138)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 376 32)
+		(output)
+		(text "rd_data[15..0]" (rect 0 0 88 15)(font "Arial" ))
+		(text "rd_data[15..0]" (rect 281 27 369 42)(font "Arial" ))
+		(line (pt 376 32)(pt 360 32)(line_width 3))
+	)
+	(port
+		(pt 376 48)
+		(output)
+		(text "rd_ready" (rect 0 0 56 15)(font "Arial" ))
+		(text "rd_ready" (rect 308 43 364 58)(font "Arial" ))
+		(line (pt 376 48)(pt 360 48))
+	)
+	(port
+		(pt 376 64)
+		(output)
+		(text "busy" (rect 0 0 30 15)(font "Arial" ))
+		(text "busy" (rect 330 59 360 74)(font "Arial" ))
+		(line (pt 376 64)(pt 360 64))
+	)
+	(port
+		(pt 376 128)
+		(output)
+		(text "clock_enable" (rect 0 0 86 15)(font "Arial" ))
+		(text "clock_enable" (rect 283 123 369 138)(font "Arial" ))
+		(line (pt 376 128)(pt 360 128))
+	)
+	(port
+		(pt 376 144)
+		(output)
+		(text "cs_n" (rect 0 0 31 15)(font "Arial" ))
+		(text "cs_n" (rect 328 136 359 151)(font "Arial" ))
+		(line (pt 376 144)(pt 360 144))
+	)
+	(port
+		(pt 376 160)
+		(output)
+		(text "ras_n" (rect 0 0 37 15)(font "Arial" ))
+		(text "ras_n" (rect 324 155 361 170)(font "Arial" ))
+		(line (pt 376 160)(pt 360 160))
+	)
+	(port
+		(pt 376 176)
+		(output)
+		(text "cas_n" (rect 0 0 40 15)(font "Arial" ))
+		(text "cas_n" (rect 322 171 362 186)(font "Arial" ))
+		(line (pt 376 176)(pt 360 176))
+	)
+	(port
+		(pt 376 192)
+		(output)
+		(text "we_n" (rect 0 0 35 15)(font "Arial" ))
+		(text "we_n" (rect 326 187 361 202)(font "Arial" ))
+		(line (pt 376 192)(pt 360 192))
+	)
+	(port
+		(pt 376 208)
+		(output)
+		(text "data_mask_low" (rect 0 0 103 15)(font "Arial" ))
+		(text "data_mask_low" (rect 268 203 371 218)(font "Arial" ))
+		(line (pt 376 208)(pt 360 208))
+	)
+	(port
+		(pt 376 224)
+		(output)
+		(text "data_mask_high" (rect 0 0 109 15)(font "Arial" ))
+		(text "data_mask_high" (rect 263 219 372 234)(font "Arial" ))
+		(line (pt 376 224)(pt 360 224))
+	)
+	(port
+		(pt 376 80)
+		(output)
+		(text "addr[12..0]" (rect 0 0 68 15)(font "Arial" ))
+		(text "addr[12..0]" (rect 288 72 356 87)(font "Arial" ))
+		(line (pt 376 80)(pt 360 80)(line_width 3))
+	)
+	(port
+		(pt 376 96)
+		(output)
+		(text "bank_addr[1..0]" (rect 0 0 100 15)(font "Arial" ))
+		(text "bank_addr[1..0]" (rect 272 88 372 103)(font "Arial" ))
+		(line (pt 376 96)(pt 360 96)(line_width 3))
+	)
+	(port
+		(pt 376 112)
+		(bidir)
+		(text "data[15..0]" (rect 0 0 67 15)(font "Arial" ))
+		(text "data[15..0]" (rect 288 104 355 119)(font "Arial" ))
+		(line (pt 376 112)(pt 360 112)(line_width 3))
+	)
+	(parameter
+		"ROW_WIDTH"
+		"13"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"COL_WIDTH"
+		"9"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"BANK_WIDTH"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"SDRADDR_WIDTH"
+		"13"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"HADDR_WIDTH"
+		"13"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"CLK_FREQUENCY"
+		"133"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"REFRESH_TIME"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"REFRESH_COUNT"
+		"8192"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 360 256))
+	)
+	(annotation_block (parameter)(rect 112 -80 357 100))
+)
+(connector
+	(pt 656 304)
+	(pt 656 320)
+)
+(connector
+	(pt 680 320)
+	(pt 680 336)
+)
+(connector
+	(pt 704 352)
+	(pt 424 352)
+)
+(connector
+	(pt 608 280)
+	(pt 608 288)
+)
+(connector
+	(pt 704 336)
+	(pt 704 352)
+)
+(connector
+	(pt 632 288)
+	(pt 632 304)
+)
+(connector
+	(pt 656 320)
+	(pt 424 320)
+)
+(connector
+	(pt 680 336)
+	(pt 424 336)
+)
+(connector
+	(pt 608 288)
+	(pt 424 288)
+)
+(connector
+	(pt 632 304)
+	(pt 424 304)
+)
+(connector
+	(pt 504 208)
+	(pt 424 208)
+	(bus)
+)
+(connector
+	(pt 528 224)
+	(pt 424 224)
+	(bus)
+)
+(connector
+	(pt 552 240)
+	(pt 424 240)
+	(bus)
+)
+(connector
+	(pt 576 256)
+	(pt 424 256)
+)
+(connector
+	(pt 592 272)
+	(pt 424 272)
+)
+(text "Cuando le asignemos el clock a esto tambien se lo tenemos que asignar a la DRAM que esta en el pin R4" (rect 64 400 788 420)(font "Intel Clear" (font_size 8)))
