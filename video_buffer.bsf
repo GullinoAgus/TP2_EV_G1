@@ -60,6 +60,13 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 96)(pt 16 96)(line_width 1))
 	)
 	(port
+		(pt 0 112)
+		(input)
+		(text "rst" (rect 0 0 10 12)(font "Arial" ))
+		(text "rst" (rect 21 107 31 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
 		(pt 232 32)
 		(output)
 		(text "video[7..0]" (rect 0 0 41 12)(font "Arial" ))
@@ -82,12 +89,12 @@ https://fpgasoftware.intel.com/eula.
 	)
 	(parameter
 		"bsize"
-		"4"
+		"2"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"watermark"
-		"2"
+		"1"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing

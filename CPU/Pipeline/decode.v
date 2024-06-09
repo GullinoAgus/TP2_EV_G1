@@ -1,19 +1,16 @@
-`define UTYPE1 5'b01101
-`define UTYPE2 5'b00101
+`define LUI 5'b01101
+`define AUIPC 5'b00101
 `define BTYPE 5'b11000
-`define ITYPE1 5'b11001
-`define ITYPE2 5'b00100
+`define JALR 5'b11001
+`define JAL 5'b11011  
+`define ITYPE 5'b00100
 `define IMTYPE 5'b00000
 `define STYPE 5'b01000
 `define RTYPE 5'b01100
-`define JTYPE 5'b11011  
 
 module decode(
 
-input [31:0] opcode,
-input clk,
-input rst,
-input en,
+input wire [31:0] opcode,
 
 output reg [4:0] ALU_command,
 output reg [4:0] rs1,
@@ -23,76 +20,132 @@ output reg [4:0] rd,
 //ARMAR UN SOLO REGISTRO DE STATUS QUE YA JUNTE VARIOS BITS PORQUE VA A SER MUCHO MAS FACIL DE RUTEAR Y MANEJAR EN QUARTUS
 //OSEA TENES UNA UNICA SALIDA DE 8 BITS Y DOCUMENTAR QUE HACE CADA UNA
 
-output reg operand, 		//Hace falta alguna manera de indicar cuales son los operandos
-								//Mi propuesta es hacerlo con 1 bit. 
-								//Si está en 0, es rs1-rs2. Si está en 1, es rs1-imm.
-								//Esto podría leerlo el register bank, seguro que si el operand build
-									
-output reg isJump,		//1 si la instrucción es de salto. 0 si la instrucción es de branch
-
-output reg isLoad,		//1 si la instrucción es de load. 0 si la instrucción es de store
-
-
-output reg [2:0] inst_type	//bit 0 -> memory type instruction (load/store)
-									//bit 1 -> ALU type instruction (load/store)
-									//bit 2 -> PC Address type instruction (load/store)
+output reg [14:0]op_data // bit order 0:UsesIMM, 1:UsesR1, 2:UsesR2, 3:UsesRd, 4:IsBranch, 5:IsJump, 6:IsUnsigned, 7:IsMemRead, 8:isMemStore, 9:SumImm2R1, 10:SumImm2R2, 11:SumImm2PC, 12: MemAccess1byte, 13: MemAccess2byte, 14: MemAccess4byte
 );
 
+wire[2:0]func3;
+wire[6:0]func7;
+wire[4:0]shamt;
+wire[4:0]_rs1;
+wire[4:0]_rs2;
+wire[4:0]_rd;
 
-assign clken = clk && en;
-assign func3 = opcode[12:14];
-assign func7 = opcode[25:31];
-assign shamt = opcode[20:24];
-assign _rs1 = opcode[15:19];
-assign _rs2 = opcode[20:24];
-assign _rd = opcode[7:11];
+assign func3 = opcode[14:12];
+assign func7 = opcode[31:25];
+assign shamt = opcode[24:20];
+assign _rs1 = opcode[19:15];
+assign _rs2 = opcode[24:20];
+assign _rd = opcode[11:7];
 
 
-always @(posedge clken, negedge rst) begin
-
-	if (!rst) begin
-	
-	end
-	else begin
-	
-	
-	if (opcode[0]!=1 || opcode[1]!=1) begin
-		//error ¿que hacemo?
-	end
-	else
-		rs1 <= _rs1;
-		rd <= _rd;
-		rs2 <= _rs2;
-		case(opcode[6:2])
-			`RTYPE: begin	//Todos los opcodes, 0110011
-				ALU_command <= {opcode[30], opcode[25], opcode[14:12]};
-				operand <= 0;
-			end
+always @(*) begin
+	rs1 <= _rs1;
+	rs2 <= _rs2;
+	case(opcode[6:2])
+		`LUI: begin
+			op_data[0] <= 1;
+			op_data[3] <= 1;
+			op_data[2:1] <= 0;
+			op_data[11:4] <= 0;
+			ALU_command <= 5'b11111;
+			rd <= _rd;
+		end
 			
-			`ITYPE_ALU: begin	//Todos los opcodes, 0010011
-				if (opcode[14:12] == 3'b001 || opcode[14:12] == 3'b101) begin
-					ALU_command = {opcode[30], opcode[25], opcode[14:12]};
-					operand = 1;
-					end
-				else begin
-					ALU_command = {2'b0, opcode[14:12]};
-					operand = 1;
-					end
-			end
+		`AUIPC: begin
+			op_data[0] <= 1;
+			op_data[3] <= 1;
+			op_data[11] <= 1;
+			op_data[2:1] <= 0;
+			op_data[10:4] <= 0;
+			ALU_command <= 5'b00000;
+			rd <= _rd;
+		end
+		
+		`BTYPE: begin
+			op_data[2:0] <= 1;
+			op_data[4] <= 1;
+			op_data[11] <= 1;
+			op_data[3] <= 0;
+			op_data[10:5] <= 0;
+			ALU_command <= 5'b11111;
+			rd <= 0;
+		end
+		
+		`JALR: begin
+			op_data[1:0] <= 1;
+			op_data[2] <= 0;
+			op_data[3] <= 1;
+			op_data[4] <= 0;
+			op_data[5] <= 1;
+			op_data[11] <= 1;
+			op_data[10:6] <= 0;
+			ALU_command <= 5'b11111;
+			rd <= _rd;
+		end
+		
+		`JAL: begin
+			op_data[0] <= 1;
+			op_data[2:1] <= 0;
+			op_data[3] <= 1;
+			op_data[4] <= 0;
+			op_data[5] <= 1;
+			op_data[11] <= 1;
+			op_data[10:6] <= 0;
+			ALU_command <= 5'b11111;
+			rd <= _rd;
+		end
+		
+		`IMTYPE: begin
+			op_data[6] <= func3[2];
+			op_data[7] <= 1;
+			op_data[1:0] <= 1;
+			op_data[2] <= 0;
+			op_data[3] <= 1;
+			op_data[5:4] <= 0;
+			op_data[8] <= 0;
+			op_data[9] <= 1;
+			op_data[11:10] <= 0;
+			ALU_command <= 5'b11111;
+			rd <= _rd;
+			case (func3[1:0])
+				2'b00: op_data[14:12] <= 3'b001;
+				2'b01: op_data[14:12] <= 3'b010;
+				2'b10: op_data[14:12] <= 3'b100;
+			endcase
+		end
+		
+		`STYPE: begin
+			op_data[8] <= 1;
+			op_data[2:0] <= 1;
+			op_data[7:3] <= 0;
+			op_data[9] <= 1;
+			op_data[11:10] <= 0;
+			ALU_command <= 5'b11111;
+			rd <= 0;
+			case (func3[1:0])
+				2'b00: op_data[14:12] <= 3'b001;
+				2'b01: op_data[14:12] <= 3'b010;
+				2'b10: op_data[14:12] <= 3'b100;
+			endcase
+		end
+		
+		`ITYPE: begin
+			op_data[1:0] <= 1;
+			op_data[2] <= 0;
+			op_data[3] <= 1;
+			op_data[11:4] <= 0;
+			rd <= _rd;
+			if (func3 == 3'b101 || func3 == 3'b001)  ALU_command <= {func7[5:4], func3};
+			else ALU_command <= {2'b00, func3};
+		end
 			
-			`ITYPE_LOAD: begin	//Todos los opcodes, 0000011
-				ALU_command = 5'b0; //ADD imm-rs1 -> despues eso lo buscas en la memoria
-				operand = 1;
-				isLoad = 1;
-			end
-		endcase
-
-	
-	end
-	
-			
+		`RTYPE: begin
+			op_data[3:1] <= 1;
+			op_data[0] <= 0;
+			op_data[11:4] <= 0;
+			ALU_command <= {func7[5:4], func3};
+			rd <= _rd;
+		end
+	endcase
 end
-
-	assign clkIn = clk & en;
-	
 endmodule

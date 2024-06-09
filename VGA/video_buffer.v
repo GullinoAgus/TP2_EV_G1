@@ -1,4 +1,4 @@
-module video_buffer #(parameter bsize = 4, parameter watermark = 2)( //bsize and watermark must be a 8 bits multiplier
+module video_buffer #(parameter bsize = 2, parameter watermark = 1)( //bsize and watermark must be a 8 bits multiplier
 	input wire[bsize*8-1:0] data,
 	input wire clk25MHz, //50MHz??
 	input wire load,
@@ -6,7 +6,8 @@ module video_buffer #(parameter bsize = 4, parameter watermark = 2)( //bsize and
 	input wire need_pixel,
  	output reg[7:0] video,
 	output reg watermark_on,
-	output reg full
+	output reg full,
+	input wire rst
 );
 
 localparam SLICE_WIDTH = 8;
@@ -16,26 +17,40 @@ reg[bsize*SLICE_WIDTH-1:0] mem;
 
 assign clk = clk25MHz && en;
 
-always @(posedge clk)
+always @(posedge clk, negedge rst)
 	begin
-		if(load)
+		
+		if(!rst)
 			begin
-				mem <= data;
-				full <= 1;
+				mem <= 0;
+				count <= 0;
+				full <= 0;
 				watermark_on <= 0;
+				video <= 8'b0;
 			end
 		else
-			if((count < bsize) && need_pixel)
-				begin
-					video <= mem[SLICE_WIDTH-1:0];
-					mem <= mem >> SLICE_WIDTH;
-					count <= count + 6'b1;
-					watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
-				end
+			if(need_pixel)
+				if(count < bsize)
+					begin
+						video <= mem[bsize*SLICE_WIDTH-1:(bsize-1)*SLICE_WIDTH];
+						mem <= mem << SLICE_WIDTH;
+						count <= count + 6'b1;
+						watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
+					end
+				else
+					begin
+						full <= 0;
+						count <= 0;
+						watermark_on <= 0;
+					end
 			else
-				begin
-					count <= 0;
-					full <= 0;
-				end
+				if(load && !full)
+					begin
+						video <= data[bsize*SLICE_WIDTH-1:(bsize-1)*SLICE_WIDTH];
+						mem <= data << SLICE_WIDTH;
+						count <= count + 6'b1;
+						watermark_on <= (count >= watermark) ? 1'b1: 1'b0;
+						full <= 1;
+					end
 	end
 endmodule

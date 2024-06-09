@@ -66,111 +66,76 @@ set_global_assignment -name EDA_OUTPUT_DATA_FORMAT BSDL -section_id eda_board_de
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VERILOG_FILE CPU/Pipeline/imm_builder.v
-set_global_assignment -name VERILOG_FILE North_Bridge/north_bridge_driver.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
-set_global_assignment -name MIF_FILE TP2_EV_RISCV.mif
-set_global_assignment -name BSF_FILE CPU/Reg_Bank/reg_bank.bsf
-set_global_assignment -name BSF_FILE CPU/Program_Mem/Prog_Mem.bsf
-set_global_assignment -name QSYS_FILE CLK/Internal_OSC.qsys
-set_global_assignment -name BDF_FILE TP2_EV_RISCV.bdf
-set_global_assignment -name BDF_FILE CPU/RISCV_CPU.bdf
-set_global_assignment -name VERILOG_FILE CPU/Reg_Bank/reg_bank.v
-set_global_assignment -name VERILOG_FILE CPU/Pipeline/fetch.v
-set_global_assignment -name VERILOG_FILE CPU/Pipeline/decode.v
-set_global_assignment -name BDF_FILE CPU/ALU/ALU.bdf
-set_global_assignment -name VERILOG_FILE CPU/ALU/multi_SU32.v
-set_global_assignment -name VERILOG_FILE CPU/ALU/d_latch.v
-set_global_assignment -name BDF_FILE North_Bridge/North_Bridge.bdf
-set_global_assignment -name BDF_FILE VGA/VGA.bdf
-set_global_assignment -name VERILOG_FILE VGA/VGA_Driver.v
-set_global_assignment -name VERILOG_FILE VGA/clock_divider.v
-set_global_assignment -name VERILOG_FILE VGA/video_buffer.v
-set_global_assignment -name QIP_FILE VGA/buffer_mux.qip
-set_global_assignment -name VERILOG_FILE VGA/demux.v
-set_global_assignment -name VERILOG_FILE VGA/buffer_selector.v
-set_global_assignment -name VERILOG_FILE North_Bridge/demux3.v
-set_global_assignment -name QIP_FILE North_Bridge/mux3.qip
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform_VGA.vwf
-set_global_assignment -name VERILOG_FILE SDRAMController/sdram_controller.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[12]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[11]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[10]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[9]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[8]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_addr_pad_o1[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_bank_pad_o[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_bank_pad_o[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_cas_n_pad_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_cke_pad_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_cs_n_pad_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[15]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[14]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[13]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[12]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[11]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[10]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[9]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[8]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dq_pad_io[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dqmHIGH_pad_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_dqmLOW_pad_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_ras_n_pad_o
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sdram_we_n_pad_o
-set_location_assignment PIN_P6 -to sdram_cs_n_pad_o
-set_location_assignment PIN_L7 -to sdram_cke_pad_o
-set_location_assignment PIN_L1 -to sdram_cas_n_pad_o
-set_location_assignment PIN_L2 -to sdram_ras_n_pad_o
-set_location_assignment PIN_C2 -to sdram_we_n_pad_o
-set_location_assignment PIN_R6 -to sdram_dqmHIGH_pad_o
-set_location_assignment PIN_T5 -to sdram_dqmLOW_pad_o
-set_location_assignment PIN_M6 -to sdram_bank_pad_o[1]
-set_location_assignment PIN_M7 -to sdram_bank_pad_o[0]
-set_location_assignment PIN_P2 -to sdram_addr_pad_o1[0]
-set_location_assignment PIN_N5 -to sdram_addr_pad_o1[1]
-set_location_assignment PIN_N6 -to sdram_addr_pad_o1[2]
-set_location_assignment PIN_M8 -to sdram_addr_pad_o1[3]
-set_location_assignment PIN_P8 -to sdram_addr_pad_o1[4]
-set_location_assignment PIN_T7 -to sdram_addr_pad_o1[5]
-set_location_assignment PIN_N8 -to sdram_addr_pad_o1[6]
-set_location_assignment PIN_T6 -to sdram_addr_pad_o1[7]
-set_location_assignment PIN_R1 -to sdram_addr_pad_o1[8]
-set_location_assignment PIN_P1 -to sdram_addr_pad_o1[9]
-set_location_assignment PIN_N2 -to sdram_addr_pad_o1[10]
-set_location_assignment PIN_N1 -to sdram_addr_pad_o1[11]
-set_location_assignment PIN_G2 -to sdram_dq_pad_io[0]
-set_location_assignment PIN_K5 -to sdram_dq_pad_io[3]
-set_location_assignment PIN_G1 -to sdram_dq_pad_io[1]
-set_location_assignment PIN_L8 -to sdram_dq_pad_io[2]
-set_location_assignment PIN_K2 -to sdram_dq_pad_io[4]
-set_location_assignment PIN_J2 -to sdram_dq_pad_io[5]
-set_location_assignment PIN_J1 -to sdram_dq_pad_io[6]
-set_location_assignment PIN_R7 -to sdram_dq_pad_io[7]
-set_location_assignment PIN_T4 -to sdram_dq_pad_io[8]
-set_location_assignment PIN_T2 -to sdram_dq_pad_io[9]
-set_location_assignment PIN_T3 -to sdram_dq_pad_io[10]
-set_location_assignment PIN_R3 -to sdram_dq_pad_io[11]
-set_location_assignment PIN_R5 -to sdram_dq_pad_io[12]
-set_location_assignment PIN_P3 -to sdram_dq_pad_io[13]
-set_location_assignment PIN_N3 -to sdram_dq_pad_io[14]
-set_location_assignment PIN_K1 -to sdram_dq_pad_io[15]
-set_location_assignment PIN_L4 -to sdram_addr_pad_o1[12]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE "Waveform-VGA_NB.vwf"
+set_global_assignment -name VERILOG_FILE VGA/video_buffer.v
+set_global_assignment -name VERILOG_FILE VGA/VGA_Driver.v
+set_global_assignment -name BDF_FILE VGA/VGA.bdf
+set_global_assignment -name VERILOG_FILE VGA/demux.v
+set_global_assignment -name VERILOG_FILE VGA/clock_divider.v
+set_global_assignment -name VERILOG_FILE VGA/buffer_selector.v
+set_global_assignment -name QIP_FILE VGA/buffer_mux_bb.qip
+set_global_assignment -name VERILOG_FILE VGA/buffer_mux.v
+set_global_assignment -name QIP_FILE VGA/buffer_mux.qip
+set_global_assignment -name BDF_FILE CPU/RISCV_CPU.bdf
+set_global_assignment -name BSF_FILE CPU/Pipeline/imm_builder.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/stage3.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/stage2.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/operand_builder.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/addr_builder.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/decode.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/stage1.bsf
+set_global_assignment -name BSF_FILE CPU/Pipeline/fetch.bsf
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/imm_builder.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/stage.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/stage3.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/stage2.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/operand_builder.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/pipeline_ctrl.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/addr_builder.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/fetch.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/decode.v
+set_global_assignment -name VERILOG_FILE CPU/Pipeline/stage1.v
+set_global_assignment -name QIP_FILE CPU/Program_Mem/Prog_Mem.qip
+set_global_assignment -name VERILOG_FILE CPU/Program_Mem/Prog_Mem.v
+set_global_assignment -name BSF_FILE CPU/ALU/and_funct.bsf
+set_global_assignment -name BSF_FILE CPU/ALU/or_funct.bsf
+set_global_assignment -name BSF_FILE CPU/ALU/xor_funct.bsf
+set_global_assignment -name BSF_FILE CPU/Reg_Bank/reg_bank.bsf
+set_global_assignment -name VERILOG_FILE CPU/Reg_Bank/reg_bank.v
+set_global_assignment -name QIP_FILE CPU/ALU/adder.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/adder.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/and.v
+set_global_assignment -name QIP_FILE CPU/ALU/arithmetic_shift_right.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/arithmetic_shift_right.v
+set_global_assignment -name QIP_FILE CPU/ALU/comparer_S32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/comparer_S32.v
+set_global_assignment -name QIP_FILE CPU/ALU/comparer_U32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/comparer_U32.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/d_latch.v
+set_global_assignment -name QIP_FILE CPU/ALU/divider_S32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/divider_S32.v
+set_global_assignment -name QIP_FILE CPU/ALU/divider_U32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/divider_U32.v
+set_global_assignment -name QIP_FILE CPU/ALU/logical_shift_left.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/logical_shift_left.v
+set_global_assignment -name QIP_FILE CPU/ALU/logical_shift_right.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/logical_shift_right.v
+set_global_assignment -name QIP_FILE CPU/ALU/multi_S32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/multi_S32.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/multi_SU32.v
+set_global_assignment -name QIP_FILE CPU/ALU/multi_U32.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/multi_U32.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/op_selector.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/or.v
+set_global_assignment -name QIP_FILE CPU/ALU/output_mux.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/output_mux.v
+set_global_assignment -name QIP_FILE CPU/ALU/subser.qip
+set_global_assignment -name VERILOG_FILE CPU/ALU/subser.v
+set_global_assignment -name VERILOG_FILE CPU/ALU/xor.v
+set_global_assignment -name BDF_FILE CPU/ALU/ALU.bdf
+set_global_assignment -name BDF_FILE TP2_EV_RISCV.bdf

@@ -6,7 +6,7 @@ module alu(
 	input rs2,
 	input opcode,
 	input imm,
-	output out,
+	output out
 );
 
 always @(posedge clk) 
