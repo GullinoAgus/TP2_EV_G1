@@ -16,9 +16,13 @@ always @(*) begin
 		operand1 <= PC;
 		operand2 <= 4;
 	end
-	else if(op_data[0]) begin
+	else if(op_data[0] && op_data[1]) begin
 		operand1 <= r1;
 		operand2 <= imm;
+	end
+	else if(op_data[0]) begin
+		operand1 <= imm;
+		operand2 <= 0;
 	end
 	else begin
 		operand1 <= r1;

@@ -10,7 +10,7 @@ input [4:0] ALU_command,
 input en,
 input rst,
 input clk,
-
+input no_output,	// activo bajo
 output reg[4:0] r1_out,
 output reg[4:0] r2_out,
 output reg[4:0] rd_out,
@@ -34,7 +34,7 @@ always @(posedge clk_en, negedge rst) begin
 		func3_out <= 0;
 		ALU_command_out <= 0;
 	end
-	else begin
+	else if (no_output) begin
 		r1_out <= r1;
 		r2_out <= r2;
 		rd_out <= rd;
@@ -43,6 +43,16 @@ always @(posedge clk_en, negedge rst) begin
 		op_data_out <= op_data;
 		func3_out <= opcode[14:12];
 		ALU_command_out <= ALU_command;
+	end
+	else if (!no_output) begin
+		r1_out <= 0;
+		r2_out <= 0;
+		rd_out <= 0;
+		imm_out <= 0;
+		PC_out <= 0;
+		op_data_out <= 0;
+		func3_out <= 0;
+		ALU_command_out <= 0;
 	end
 end
 
