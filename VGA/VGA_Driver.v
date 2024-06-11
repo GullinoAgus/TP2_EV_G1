@@ -10,9 +10,7 @@ module VGA_Driver(
 	output [2:0] red,
 	output [2:0] green,
 	output [1:0] blue,
-	output need_pixel,
-	output wire[9:0] counterX,
-	output wire[9:0] counterY
+	output need_pixel
 );
 
 	localparam BOTTOM_COUNTER_X = 5; 	// 144 
@@ -27,9 +25,6 @@ module VGA_Driver(
 	reg [9:0] counter_x = 0;  // horizontal counter
 	reg [9:0] counter_y = 0;  // vertical counter
 	wire clk;
-	
-	assign counterX = counter_x;
-	assign counterY = counter_y;
 	
 	assign clk = clk25MHz && en;
 	

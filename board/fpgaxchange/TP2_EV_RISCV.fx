@@ -32,72 +32,37 @@
 
 Signal Name,Pin Number,Direction,IO Standard,Drive (mA),Termination,Slew Rate,Swap Group,Diff Type
 
-hsync,B6,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-vsync,T13,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-data_needed,B14,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-select_buff,E10,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-need_pixel,D15,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-wat0,A12,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-wat1,C11,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-full1,D11,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-full0,J15,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-select_load,J16,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-b[1],R13,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-b[0],L16,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[9],C8,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[8],B7,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[7],L13,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[6],E6,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[5],A15,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[4],T12,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[3],B10,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[2],D16,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[1],E9,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contX[0],A10,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[9],D9,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[8],C9,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[7],E8,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[6],A6,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[5],A7,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[4],F9,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[3],E7,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[2],F8,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[1],P11,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-contY[0],L14,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-curr_color[7],J14,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-curr_color[6],G15,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-curr_color[5],C15,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-curr_color[4],C16,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-curr_color[3],J13,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-curr_color[2],T14,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-curr_color[1],L15,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-curr_color[0],A11,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-g[2],N16,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-g[1],G16,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-g[0],B11,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-r[2],N15,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-r[1],K16,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
-r[0],F14,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+hsync,B4,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+vsync,B5,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+data_needed,A2,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+b[1],F8,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+b[0],E9,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+g[2],C6,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+g[1],E6,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+g[0],D8,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+r[2],D5,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+r[1],A6,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
+r[0],D6,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_0,--
 load,R9,input,2.5 V,,Off,--,swap_1,--
-rst,M2,input,2.5 V,,Off,--,swap_1,--
+rst,T8,input,2.5 V,,Off,--,swap_1,--
 read_pixel[9],T9,input,2.5 V,,Off,--,swap_1,--
-read_pixel[8],A13,input,2.5 V,,Off,--,swap_1,--
-read_pixel[15],B13,input,2.5 V,,Off,--,swap_1,--
-read_pixel[14],D14,input,2.5 V,,Off,--,swap_1,--
-read_pixel[13],E11,input,2.5 V,,Off,--,swap_1,--
-read_pixel[12],D12,input,2.5 V,,Off,--,swap_1,--
-read_pixel[11],C6,input,2.5 V,,Off,--,swap_1,--
-read_pixel[10],A14,input,2.5 V,,Off,--,swap_1,--
-en,D8,input,2.5 V,,Off,--,swap_1,--
-clk50Mhz,E1,input,2.5 V,,Off,--,swap_1,--
-read_pixel[1],K15,input,2.5 V,,Off,--,swap_1,--
-read_pixel[0],F13,input,2.5 V,,Off,--,swap_1,--
-read_pixel[7],N14,input,2.5 V,,Off,--,swap_1,--
-read_pixel[6],B16,input,2.5 V,,Off,--,swap_1,--
-read_pixel[5],F15,input,2.5 V,,Off,--,swap_1,--
-read_pixel[4],C14,input,2.5 V,,Off,--,swap_1,--
-read_pixel[3],B12,input,2.5 V,,Off,--,swap_1,--
-read_pixel[2],M10,input,2.5 V,,Off,--,swap_1,--
+read_pixel[8],B10,input,2.5 V,,Off,--,swap_1,--
+read_pixel[12],A4,input,2.5 V,,Off,--,swap_1,--
+read_pixel[11],F9,input,2.5 V,,Off,--,swap_1,--
+read_pixel[10],B6,input,2.5 V,,Off,--,swap_1,--
+read_pixel[15],B7,input,2.5 V,,Off,--,swap_1,--
+read_pixel[14],A7,input,2.5 V,,Off,--,swap_1,--
+read_pixel[13],C9,input,2.5 V,,Off,--,swap_1,--
+en,C8,input,2.5 V,,Off,--,swap_1,--
+read_pixel[1],E7,input,2.5 V,,Off,--,swap_1,--
+clk50Mhz,R8,input,2.5 V,,Off,--,swap_1,--
+read_pixel[0],A10,input,2.5 V,,Off,--,swap_1,--
+read_pixel[4],E8,input,2.5 V,,Off,--,swap_1,--
+read_pixel[3],A5,input,2.5 V,,Off,--,swap_1,--
+read_pixel[2],A15,input,2.5 V,,Off,--,swap_1,--
+read_pixel[7],B3,input,2.5 V,,Off,--,swap_1,--
+read_pixel[6],A3,input,2.5 V,,Off,--,swap_1,--
+read_pixel[5],D9,input,2.5 V,,Off,--,swap_1,--
 ~ALTERA_ASDO_DATA1~,C1,input,2.5 V,,Off,--,NOSWAP,--
 ~ALTERA_FLASH_nCE_nCSO~,D2,input,2.5 V,,Off,--,NOSWAP,--
 ~ALTERA_DCLK~,H1,output,2.5 V,Default,Off,FAST,NOSWAP,--
