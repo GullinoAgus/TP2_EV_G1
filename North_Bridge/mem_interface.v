@@ -1,38 +1,14 @@
 module mem_interface(
-	input clk,
-	input rst,
 	input busy,
 	input read,
 	input write,
+	input VGA_data_needed,
 	
-	output reg write_enabled,
-	output reg read_enabled
+	output wire write_enabled,
+	output wire read_enabled
 );
 
-reg currently_busy;
+assign write_enabled = !busy && write && !VGA_data_needed;
+assign read_enabled = !busy && read;
 
-always @(posedge clk, negedge rst)
-	begin
-		if(!rst)
-			currently_busy <= 0;
-			
-		currently_busy <= busy;
-		
-		if(!currently_busy)
-			begin
-				if(read == 1)
-					begin
-						read_enabled <= 1;
-					end
-				if(write == 1)
-					begin
-						write_enabled <= 1;
-					end
-			end
-		else
-			begin
-				read_enabled <= 0;
-				write_enabled <= 0;
-			end
-	end
 endmodule

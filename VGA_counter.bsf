@@ -21,9 +21,9 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 176 96)
+	(rect 16 16 232 128)
 	(text "VGA_counter" (rect 5 0 64 12)(font "Arial" ))
-	(text "inst" (rect 8 64 20 76)(font "Arial" ))
+	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -39,13 +39,20 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 48)(pt 16 48)(line_width 1))
 	)
 	(port
-		(pt 160 32)
+		(pt 0 64)
+		(input)
+		(text "data_needed" (rect 0 0 50 12)(font "Arial" ))
+		(text "data_needed" (rect 21 59 71 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 216 32)
 		(output)
-		(text "count[23..0]" (rect 0 0 46 12)(font "Arial" ))
-		(text "count[23..0]" (rect 93 27 139 39)(font "Arial" ))
-		(line (pt 160 32)(pt 144 32)(line_width 3))
+		(text "count_out[23..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "count_out[23..0]" (rect 132 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 144 64)(line_width 1))
+		(rectangle (rect 16 16 200 96)(line_width 1))
 	)
 )

@@ -10,6 +10,7 @@ reg[1:0] count = 0;
 always @(posedge clk)
 	begin
 		if(VGA_data_needed)
+			begin
 			if (count < 2)
 				begin
 					count <= count + 1;
@@ -23,5 +24,6 @@ always @(posedge clk)
 					count <= 0;
 					load_VGA <= 0;
 				end
+			end
 	end
 endmodule
