@@ -26,9 +26,38 @@ assign clkin = clk && en;
 
 always @(posedge clkin, negedge reset) begin
 	if (!reset) begin
-		for (i=0; i < 32; i=i+1) begin
-			reg_bank[i] = 0;
-		end
+		reg_bank[0] = 0;
+		reg_bank[1] = 0;
+		reg_bank[2] = 0;
+		reg_bank[3] = 0;
+		reg_bank[4] = 0;
+		reg_bank[5] = 0;
+		reg_bank[6] = 0;
+		reg_bank[7] = 0;
+		reg_bank[8] = 0;
+		reg_bank[9] = 0;
+		reg_bank[10] = 0;
+		reg_bank[11] = 0;
+		reg_bank[12] = 0;
+		reg_bank[13] = 0;
+		reg_bank[14] = 0;
+		reg_bank[15] = 0;
+		reg_bank[16] = 0;
+		reg_bank[17] = 0;
+		reg_bank[18] = 0;
+		reg_bank[19] = 0;
+		reg_bank[20] = 0;
+		reg_bank[21] = 0;
+		reg_bank[22] = 0;
+		reg_bank[23] = 0;
+		reg_bank[24] = 0;
+		reg_bank[25] = 0;
+		reg_bank[26] = 0;
+		reg_bank[27] = 0;
+		reg_bank[28] = 0;
+		reg_bank[29] = 0;
+		reg_bank[30] = 0;
+		reg_bank[31] = 0;
 	end
 	else begin
 		if (busCsel != 0) reg_bank[busCsel] <= busC;

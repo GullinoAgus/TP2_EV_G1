@@ -62,7 +62,14 @@ always @(*) begin
 					_load <= ((r1 >= r2) ? 1 : 0);
 					GE <= (r1 >= r2) ? 1 : 0;
 				end
-				default: _load <= 0;
+				default: begin
+					_load <= 0;
+					LT <= 0;
+					GE <= 0;
+					EQ <= 0;
+					NE <= 0;
+					PC_out <= 0;
+				end
 			endcase
 		end
 		else begin

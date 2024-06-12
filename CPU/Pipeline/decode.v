@@ -25,14 +25,12 @@ output reg [14:0]op_data // bit order 0:UsesIMM, 1:UsesR1, 2:UsesR2, 3:UsesRd, 4
 
 wire[2:0]func3;
 wire[6:0]func7;
-wire[4:0]shamt;
 wire[4:0]_rs1;
 wire[4:0]_rs2;
 wire[4:0]_rd;
 
 assign func3 = opcode[14:12];
 assign func7 = opcode[31:25];
-assign shamt = opcode[24:20];
 assign _rs1 = opcode[19:15];
 assign _rs2 = opcode[24:20];
 assign _rd = opcode[11:7];
@@ -60,7 +58,7 @@ always @(*) begin
 				op_data[0] <= 1;
 				op_data[3] <= 1;
 				op_data[2:1] <= 0;
-				op_data[11:4] <= 0;
+				op_data[14:4] <= 0;
 				ALU_command <= 5'b11111;
 				rd <= _rd;
 				rs1 <= 0;
@@ -73,6 +71,7 @@ always @(*) begin
 				op_data[11] <= 1;
 				op_data[2:1] <= 0;
 				op_data[10:4] <= 0;
+				op_data[14:12] <= 0;
 				ALU_command <= 5'b00000;
 				rd <= _rd;
 				rs1 <= 0;
@@ -85,7 +84,8 @@ always @(*) begin
 				op_data[11] <= 1;
 				op_data[3] <= 0;
 				op_data[10:5] <= 0;
-				ALU_command <= 5'b11111;
+				op_data[14:12] <= 0;
+				ALU_command <= 5'b11110;
 				rd <= 0;
 				rs1 <= _rs1;
 				rs2 <= _rs2;
@@ -99,6 +99,7 @@ always @(*) begin
 				op_data[5] <= 1;
 				op_data[11] <= 1;
 				op_data[10:6] <= 0;
+				op_data[14:12] <= 0;
 				ALU_command <= 5'b11111;
 				rd <= _rd;
 				rs1 <= _rs1;
@@ -113,6 +114,7 @@ always @(*) begin
 				op_data[5] <= 1;
 				op_data[11] <= 1;
 				op_data[10:6] <= 0;
+				op_data[14:12] <= 0;
 				ALU_command <= 5'b11111;
 				rd <= _rd;
 				rs1 <= 0;
@@ -163,7 +165,7 @@ always @(*) begin
 				op_data[1:0] <= 2'b11;
 				op_data[2] <= 0;
 				op_data[3] <= 1;
-				op_data[11:4] <= 0;
+				op_data[14:4] <= 0;
 				rd <= _rd;
 				rs1 <= _rs1;
 				rs2 <= 0;
@@ -174,7 +176,7 @@ always @(*) begin
 			`RTYPE: begin
 				op_data[3:1] <= 3'b111;
 				op_data[0] <= 0;
-				op_data[11:4] <= 0;
+				op_data[12:4] <= 0;
 				ALU_command <= {func7[5:4], func3};
 				rd <= _rd;
 				rs1 <= _rs1;
