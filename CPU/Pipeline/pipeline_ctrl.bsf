@@ -21,9 +21,9 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 64 64 304 304)
+	(rect 64 64 304 312)
 	(text "pipeline_ctrl" (rect 5 0 61 11)(font "Arial" ))
-	(text "inst" (rect 8 224 24 235)(font "Arial" ))
+	(text "inst" (rect 64 224 80 235)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -109,38 +109,45 @@ https://fpgasoftware.intel.com/eula.
 		(line (pt 0 208)(pt 16 208)(color 0 128 255)(line_width 3))
 	)
 	(port
+		(pt 0 224)
+		(input)
+		(text "mem_busy" (rect 24 216 88 231)(font "Intel Clear" (font_size 8)))
+		(text "mem_busy" (rect 24 216 77 228)(font "Intel Clear" ))
+		(line (pt 0 224)(pt 16 224))
+	)
+	(port
 		(pt 240 32)
 		(output)
 		(text "en_fetch" (rect 0 0 41 11)(font "Arial" ))
-		(text "en_fetch" (rect 185 27 219 38)(font "Arial" ))
+		(text "en_fetch" (rect 185 27 226 38)(font "Arial" ))
 		(line (pt 240 32)(pt 224 32))
 	)
 	(port
 		(pt 240 48)
 		(output)
 		(text "en_stage1" (rect 0 0 49 11)(font "Arial" ))
-		(text "en_stage1" (rect 178 43 219 54)(font "Arial" ))
+		(text "en_stage1" (rect 178 43 227 54)(font "Arial" ))
 		(line (pt 240 48)(pt 224 48))
 	)
 	(port
 		(pt 240 64)
 		(output)
 		(text "en_stage2" (rect 0 0 49 11)(font "Arial" ))
-		(text "en_stage2" (rect 178 59 219 70)(font "Arial" ))
+		(text "en_stage2" (rect 178 59 227 70)(font "Arial" ))
 		(line (pt 240 64)(pt 224 64))
 	)
 	(port
 		(pt 240 80)
 		(output)
 		(text "en_stage3" (rect 0 0 49 11)(font "Arial" ))
-		(text "en_stage3" (rect 178 75 219 86)(font "Arial" ))
+		(text "en_stage3" (rect 178 75 227 86)(font "Arial" ))
 		(line (pt 240 80)(pt 224 80))
 	)
 	(port
 		(pt 240 96)
 		(output)
 		(text "en_regs" (rect 0 0 38 11)(font "Arial" ))
-		(text "en_regs" (rect 187 91 219 102)(font "Arial" ))
+		(text "en_regs" (rect 187 91 225 102)(font "Arial" ))
 		(line (pt 240 96)(pt 224 96))
 	)
 	(port
@@ -157,7 +164,14 @@ https://fpgasoftware.intel.com/eula.
 		(text "rst_stage1" (rect 176 128 226 140)(font "Intel Clear" ))
 		(line (pt 240 136)(pt 224 136))
 	)
+	(port
+		(pt 240 152)
+		(output)
+		(text "pause_s1" (rect 189 144 244 159)(font "Intel Clear" (font_size 8)))
+		(text "pause_s1" (rect 189 144 235 156)(font "Intel Clear" ))
+		(line (pt 240 152)(pt 224 152))
+	)
 	(drawing
-		(rectangle (rect 16 16 224 224))
+		(rectangle (rect 16 16 225 238))
 	)
 )

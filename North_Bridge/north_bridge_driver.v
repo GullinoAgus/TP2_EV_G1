@@ -3,8 +3,8 @@
 
 module north_bridge_driver(
 	input clk,
-	input CPU_data[15:0],
-	input CPU_addr[23:0],
+	input [15:0]CPU_data,
+	input [23:0]CPU_addr,
 	input CPU_RW,
 	input VGA_data_needed,
 	input VGA_counter_rst,
@@ -12,9 +12,7 @@ module north_bridge_driver(
 	
 	output toVGA,
 	output toCPU,
-	output busy,
-	
-	
+	output busy
 );
 
 

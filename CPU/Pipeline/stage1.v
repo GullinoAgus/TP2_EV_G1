@@ -11,6 +11,7 @@ input en,
 input rst,
 input clk,
 input no_output,	// activo bajo
+input pause,
 output reg[4:0] r1_out,
 output reg[4:0] r2_out,
 output reg[4:0] rd_out,
@@ -34,7 +35,7 @@ always @(posedge clk_en, negedge rst) begin
 		func3_out <= 0;
 		ALU_command_out <= 0;
 	end
-	else if (no_output) begin
+	else if (no_output && pause) begin
 		r1_out <= r1;
 		r2_out <= r2;
 		rd_out <= rd;
@@ -43,6 +44,16 @@ always @(posedge clk_en, negedge rst) begin
 		op_data_out <= op_data;
 		func3_out <= opcode[14:12];
 		ALU_command_out <= ALU_command;
+	end
+	else if (no_output && !pause) begin
+		r1_out <= r1_out;
+		r2_out <= r2_out;
+		rd_out <= rd_out;
+		imm_out <= imm_out;
+		PC_out <= PC_out;
+		op_data_out <= op_data_out;
+		func3_out <= func3_out;
+		ALU_command_out <= ALU_command_out;
 	end
 	else if (!no_output) begin
 		r1_out <= 0;

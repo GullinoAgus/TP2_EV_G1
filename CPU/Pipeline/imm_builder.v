@@ -16,7 +16,7 @@ module imm_builder(
 always @(*)
 	begin
 		case(inst[6:2])
-			`LUI, `AUIPC: imm = {inst[31:12], 8'b00000000};
+			`LUI, `AUIPC: imm = {inst[31:12], 12'h000};
 			`BTYPE: imm = {inst[31] ? 20'hFFFFF : 20'h00000 , inst[7], inst[30:25], inst[11:8], 1'b0};
 			`JALR, `ITYPE, `IMTYPE: imm = {inst[31] ? 21'h1FFFFF : 21'h000000, inst[30:25], inst[24:21], inst[20]};
 			`STYPE: imm = {inst[31] ? 21'h1FFFFF : 21'h000000, inst[30:25], inst[11:8], inst[7]};

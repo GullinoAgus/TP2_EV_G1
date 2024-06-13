@@ -19,54 +19,184 @@ Intel and sold by Intel or its authorized distributors.  Please
 refer to the applicable agreement for further details, at
 https://fpgasoftware.intel.com/eula.
 */
-(header "symbol" (version "1.1"))
+(header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 248 128)
-	(text "mem_interface" (rect 5 0 66 12)(font "Arial" ))
-	(text "inst" (rect 8 96 20 108)(font "Arial" ))
+	(rect 64 64 304 272)
+	(text "mem_interface" (rect 5 0 75 11)(font "Arial" ))
+	(text "inst" (rect 8 192 24 203)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "busy" (rect 0 0 20 12)(font "Arial" ))
-		(text "busy" (rect 21 27 41 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 1))
+		(text "imm[31..0]" (rect 0 0 49 11)(font "Arial" ))
+		(text "imm[31..0]" (rect 21 27 70 38)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
 		(pt 0 48)
 		(input)
-		(text "read" (rect 0 0 17 12)(font "Arial" ))
-		(text "read" (rect 21 43 38 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 1))
+		(text "r2[31..0]" (rect 0 0 38 11)(font "Arial" ))
+		(text "r2[31..0]" (rect 21 43 59 54)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
 		(pt 0 64)
 		(input)
-		(text "write" (rect 0 0 17 12)(font "Arial" ))
-		(text "write" (rect 21 59 38 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 1))
+		(text "r1_in[31..0]" (rect 0 0 53 11)(font "Arial" ))
+		(text "r1_in[31..0]" (rect 21 59 74 70)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "VGA_data_needed" (rect 0 0 80 12)(font "Arial" ))
-		(text "VGA_data_needed" (rect 21 75 101 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 1))
+		(text "op_data[14..0]" (rect 0 0 68 11)(font "Arial" ))
+		(text "op_data[14..0]" (rect 21 75 89 86)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
-		(pt 232 32)
-		(output)
-		(text "write_enabled" (rect 0 0 53 12)(font "Arial" ))
-		(text "write_enabled" (rect 158 27 211 39)(font "Arial" ))
-		(line (pt 232 32)(pt 216 32)(line_width 1))
+		(pt 240 80)
+		(input)
+		(text "data_north[15..0]" (rect 0 0 80 11)(font "Arial" ))
+		(text "data_north[15..0]" (rect 135 72 215 83)(font "Arial" ))
+		(line (pt 224 80)(pt 240 80)(line_width 3))
 	)
 	(port
-		(pt 232 48)
-		(output)
-		(text "read_enabled" (rect 0 0 53 12)(font "Arial" ))
-		(text "read_enabled" (rect 158 43 211 55)(font "Arial" ))
-		(line (pt 232 48)(pt 216 48)(line_width 1))
+		(pt 240 184)
+		(input)
+		(text "data_local[31..0]" (rect 0 0 77 11)(font "Arial" ))
+		(text "data_local[31..0]" (rect 138 176 215 187)(font "Arial" ))
+		(line (pt 224 184)(pt 240 184)(line_width 3))
 	)
+	(port
+		(pt 240 32)
+		(input)
+		(text "mem_rdy" (rect 0 0 44 11)(font "Arial" ))
+		(text "mem_rdy" (rect 171 24 215 35)(font "Arial" ))
+		(line (pt 224 32)(pt 240 32))
+	)
+	(port
+		(pt 136 0)
+		(input)
+		(text "clk" (rect 0 0 12 11)(font "Arial" ))
+		(text "clk" (rect 128 25 139 37)(font "Arial" )(vertical))
+		(line (pt 136 0)(pt 136 17))
+	)
+	(port
+		(pt 96 0)
+		(input)
+		(text "rst" (rect 0 0 11 11)(font "Arial" ))
+		(text "rst" (rect 88 24 99 35)(font "Arial" )(vertical))
+		(line (pt 96 16)(pt 96 0))
+	)
+	(port
+		(pt 0 168)
+		(output)
+		(text "r1_out[31..0]" (rect 0 0 60 11)(font "Arial" ))
+		(text "r1_out[31..0]" (rect 24 160 84 171)(font "Arial" ))
+		(line (pt 16 168)(pt 0 168)(line_width 3))
+	)
+	(port
+		(pt 240 112)
+		(output)
+		(text "write_data[31..0]" (rect 0 0 79 11)(font "Arial" ))
+		(text "write_data[31..0]" (rect 153 107 232 118)(font "Arial" ))
+		(line (pt 240 112)(pt 224 112)(line_width 3))
+	)
+	(port
+		(pt 240 128)
+		(output)
+		(text "addr[31..0]" (rect 0 0 50 11)(font "Arial" ))
+		(text "addr[31..0]" (rect 177 123 227 134)(font "Arial" ))
+		(line (pt 240 128)(pt 224 128)(line_width 3))
+	)
+	(port
+		(pt 240 152)
+		(output)
+		(text "mem_read_local" (rect 0 0 79 11)(font "Arial" ))
+		(text "mem_read_local" (rect 153 147 232 158)(font "Arial" ))
+		(line (pt 240 152)(pt 224 152))
+	)
+	(port
+		(pt 240 48)
+		(output)
+		(text "mem_read_north" (rect 0 0 81 11)(font "Arial" ))
+		(text "mem_read_north" (rect 151 43 232 54)(font "Arial" ))
+		(line (pt 240 48)(pt 224 48))
+	)
+	(port
+		(pt 240 168)
+		(output)
+		(text "mem_write_local" (rect 0 0 80 11)(font "Arial" ))
+		(text "mem_write_local" (rect 152 163 232 174)(font "Arial" ))
+		(line (pt 240 168)(pt 224 168))
+	)
+	(port
+		(pt 240 64)
+		(output)
+		(text "mem_write_north" (rect 0 0 82 11)(font "Arial" ))
+		(text "mem_write_north" (rect 150 59 232 70)(font "Arial" ))
+		(line (pt 240 64)(pt 224 64))
+	)
+	(port
+		(pt 0 120)
+		(output)
+		(text "mem_busy" (rect 0 0 51 11)(font "Arial" ))
+		(text "mem_busy" (rect 24 112 75 123)(font "Arial" ))
+		(line (pt 16 120)(pt 0 120))
+	)
+	(port
+		(pt 80 208)
+		(output)
+		(text "state_out[4..0]" (rect 72 157 87 241)(font "Intel Clear" (font_size 8))(vertical))
+		(text "state_out[4..0]" (rect 72 120 84 189)(font "Intel Clear" )(vertical))
+		(line (pt 80 208)(pt 80 192)(color 128 0 255)(line_width 3))
+	)
+	(parameter
+		"IDLE"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"WAIT_READ"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"PREP1_READ"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"PREP2_READ"
+		"3"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"WAIT_WRITE"
+		"4"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"PREP1_WRITE"
+		"5"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"PREP2_WRITE"
+		"6"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"LOCAL_READ"
+		"7"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"LOCAL_WRITE"
+		"8"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 216 96)(line_width 1))
+		(rectangle (rect 16 16 224 192))
 	)
+	(annotation_block (parameter)(rect 304 -88 504 64))
 )

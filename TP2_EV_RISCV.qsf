@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
-set_global_assignment -name TOP_LEVEL_ENTITY North_Bridge
+set_global_assignment -name TOP_LEVEL_ENTITY RISCV_CPU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:50:03  ABRIL 19, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
@@ -106,9 +106,6 @@ set_location_assignment PIN_T5 -to sdram_dqmLOW_pad_o
 set_location_assignment PIN_L2 -to sdram_ras_n_pad_o
 set_location_assignment PIN_C2 -to sdram_we_n_pad_o
 set_location_assignment PIN_R8 -to clk50Mhz
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_C6 -to g[2]
 set_location_assignment PIN_D5 -to r[2]
 set_location_assignment PIN_A6 -to r[1]
@@ -119,7 +116,6 @@ set_location_assignment PIN_F8 -to b[1]
 set_location_assignment PIN_E9 -to b[0]
 set_location_assignment PIN_B4 -to hsync
 set_location_assignment PIN_B5 -to vsync
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name MIF_FILE TP2_EV_RISCV.mif
 set_global_assignment -name VECTOR_WAVEFORM_FILE "Waveform-VGA_NB.vwf"
 set_global_assignment -name VERILOG_FILE VGA/video_buffer.v
@@ -189,6 +185,11 @@ set_global_assignment -name VERILOG_FILE CPU/ALU/xor.v
 set_global_assignment -name BDF_FILE CPU/ALU/ALU.bdf
 set_global_assignment -name BDF_FILE TP2_EV_RISCV.bdf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform_CPU_AG.vwf
-set_global_assignment -name BDF_FILE North_Bridge/North_Bridge.bdf
-set_global_assignment -name VERILOG_FILE North_Bridge/north_bridge_driver.v
 set_global_assignment -name VERILOG_FILE CPU/MEM_INTRFACE/mem_interface.v
+set_global_assignment -name QIP_FILE CPU/Program_Mem/Prog_MemV2.qip
+set_global_assignment -name VERILOG_FILE CPU/MEM_INTRFACE/gpio_mem_sel.v
+set_global_assignment -name VERILOG_FILE CPU/MEM_INTRFACE/gpio.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
