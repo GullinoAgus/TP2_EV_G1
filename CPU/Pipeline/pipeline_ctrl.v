@@ -117,6 +117,9 @@ always @(posedge clk, negedge rst) begin
 			en_stage2 <= 1;
 			en_stage3 <= 1;
 		end
+		else if (skipRead == 2) begin
+			skipRead <= skipRead + 1;
+		end
 		else if (skipRead == 1 && !writting) begin
 			skipRead <= skipRead + 1;
 		end
